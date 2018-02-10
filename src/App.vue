@@ -6,8 +6,10 @@
 </template>
 
 <script>
+import purecss from "../static/css/pure-min.css"
+
 export default {
-  name: 'App'
+  name: 'App',
 }
 </script>
 
