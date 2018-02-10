@@ -12,6 +12,7 @@
 <script>
 import purecssbase from "../static/css/base-min.css"
 import purecssgrid from "../static/css/grids-responsive-min.css"
+import buttonscss from "../static/css/buttons-min.css"
 import blogcss from "../static/css/custom/blog.css"
 import navbar from "./components/Navbar"
 
