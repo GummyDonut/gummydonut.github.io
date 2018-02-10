@@ -1,15 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <div id="layout" class="pure-g">
+        <lantern-navbar></lantern-navbar>
+        <div class="content pure-u-1 pure-u-md-5-6">
+        <router-view/>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
-import purecss from "../static/css/pure-min.css"
+import purecssbase from "../static/css/base-min.css"
+import purecssgrid from "../static/css/grids-responsive-min.css"
+import blogcss from "../static/css/custom/blog.css"
+import navbar from "./components/Navbar"
 
 export default {
   name: 'App',
+  components : {
+    'lantern-navbar' : navbar
+  }
 }
 </script>
 
