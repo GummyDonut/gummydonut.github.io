@@ -10,7 +10,7 @@ export default{
 <template>
 <div class="sidebar pure-u-1 pure-u-md-1-6"> <!--Temporary fix on the computer side not on the phone side-->
         <div class="header">
-            <img src="img/logo.png" class="logo">
+            <img src="static/img/logo.png" class="logo">
             <a style="color:#ffffff;" href="#/blog"><h1 class="brand-title">Peter's Void</h1></a>
             <h2 class="brand-tagline">Where words may mean nothing </h2>
 
