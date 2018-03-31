@@ -1,6 +1,6 @@
 <script>
 export default{
-    'name' : 'lantern77-navbar'
+  'name': 'lantern77-navbar'
 }
 </script>
 

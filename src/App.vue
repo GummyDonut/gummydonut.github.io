@@ -6,20 +6,20 @@
         <router-view/>
         </div>
     </div>
+    <link rel="stylesheet" type="text/css" href="../static/css/base-min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/grids-responsive-min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/buttons-min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/custom/blog.css">
   </div>
 </template>
 
 <script>
-import purecssbase from "../static/css/base-min.css"
-import purecssgrid from "../static/css/grids-responsive-min.css"
-import buttonscss from "../static/css/buttons-min.css"
-import blogcss from "../static/css/custom/blog.css"
-import navbar from "./components/Navbar"
+import navbar from './components/Navbar'
 
 export default {
   name: 'App',
-  components : {
-    'lantern-navbar' : navbar
+  components: {
+    'lantern-navbar': navbar
   }
 }
 </script>
