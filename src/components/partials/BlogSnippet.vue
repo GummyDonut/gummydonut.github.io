@@ -1,7 +1,7 @@
 <script>
 export default{
   'name': 'blog-snippet',
-  'props' : ['jsonData']
+  'props': ['jsonData']
 }
 </script>
 
