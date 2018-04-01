@@ -1,0 +1,77 @@
+[
+   	 {
+        "age": -6, 
+        "id": "blogEntry6", 
+		"date": "February 17, 2015", 
+        "thumbnail": "img/thumbnail/cusec.webp",
+		"tags": "CUSEC,extra,school,FUN, learn",	
+        "name": "Alot has happened and much had been achieved", 
+        "snippet": ""
+		
+	}, 
+
+   	{
+        "age": -5, 
+        "id": "blogEntry5", 
+		"date": "December 30, 2014", 
+        "thumbnail": "img/thumbnail/rails-logo.jpg",
+		"tags": "Ruby, JQuery,view, Ruby on Rails",	
+        "name": "Ruby on rails Dev continued", 
+        "snippet": "Simply messing around with JQuery"
+		
+	}, 
+   	{
+        "age": -4, 
+        "id": "blogEntry4", 
+		"date": "December 29, 2014", 
+        "thumbnail": "img/thumbnail/rails-logo.jpg",
+		"tags": "Ruby, routing,controller,view, Ruby on Rails",	
+        "name": "Ruby on rails Dev started", 
+        "snippet": "Ruby on rails Dev started"
+		
+	}, 
+	
+	{
+        "age": -3, 
+        "id": "blogEntry3", 
+		"date": "December 28, 2014", 
+        "thumbnail": "img/thumbnail/Logo_ubuntu.png",
+		"tags": "Ruby, Toast, Ruby on Rails",	
+        "name": "Slowly moving over to UNIX,got over fever", 
+        "snippet": "Finally got over this fever"
+		
+	},
+	{
+        "age": 0, 
+        "id": "blogEntry0", 
+		"date": "September 02, 2014", 
+        "thumbnail": "img/baduk.jpeg",
+		"tags": "Start, Beginning, Something",	
+        "name": "Beginning of Something I hope", 
+        "snippet": "Well finally school has started and I finally going to make a blog post."
+		
+	},
+	{
+        "age": -1, 
+        "id": "blogEntry1", 
+		"date": "September 23, 2014", 
+        "thumbnail": "img/github_icon.png",
+		"tags": "Updates, gotta, do, something",	
+        "name": "Mehh Updates", 
+        "snippet": "It was brought to my attention, by my friend"
+		
+	},
+	{
+        "age": -2, 
+        "id": "blogEntry2", 
+		"date": "December 12, 2014", 
+        "thumbnail": "img/thumbnail/50.jpg",
+		"tags": "speedrun, extracurricular, work, school",	
+        "name": "Finally Winter Has Arrived", 
+        "snippet": "After a two long week of exams its time to finally update and learn"
+		
+	}
+	
+	
+
+]

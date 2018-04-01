@@ -33,4 +33,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+.backgroundSpace{
+    background-image: url('../static/img/spaceWallpaper.jpg');
+}
 </style>
