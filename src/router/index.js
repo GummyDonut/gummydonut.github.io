@@ -1,18 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import About from '@/components/About'
-import Resume from '@/components/Resume'
-import Blog from '@/components/Blog'
+import About from '@/components/layouts/About'
+import Resume from '@/components/layouts/Resume'
+import Blog from '@/components/layouts/Blog'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/'
     },
     {
       path: '/about',
