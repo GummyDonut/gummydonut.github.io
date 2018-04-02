@@ -2,88 +2,77 @@
 	"snippet": "Simply messing around with JQuery",
 	"date": "December 30, 2014",
 	"thumbnail": "img\/thumbnail\/rails-logo.jpg",
-	"name": "Ruby on rails Dev continued",
+	"title": "Ruby on rails Dev continued",
 	"id": "blogEntry5",
-	"age": -5,
 	"tags": "Ruby, JQuery,view, Ruby on Rails"
 }, {
 	"snippet": "Ruby on rails Dev started",
 	"date": "December 29, 2014",
 	"thumbnail": "img\/thumbnail\/rails-logo.jpg",
-	"name": "Ruby on rails Dev started",
+	"title": "Ruby on rails Dev started",
 	"id": "blogEntry4",
-	"age": -4,
 	"tags": "Ruby, routing,controller,view, Ruby on Rails"
 }, {
 	"snippet": "Finally got over this fever",
 	"date": "December 28, 2014",
 	"thumbnail": "img\/thumbnail\/Logo_ubuntu.png",
-	"name": "Slowly moving over to UNIX,got over fever",
+	"title": "Slowly moving over to UNIX,got over fever",
 	"id": "blogEntry3",
-	"age": -3,
 	"tags": "Ruby, Toast, Ruby on Rails"
 }, {
 	"snippet": "Well finally school has started and I finally going to make a blog post.",
 	"date": "September 02, 2014",
 	"thumbnail": "img\/baduk.jpeg",
-	"name": "Beginning of Something I hope",
+	"title": "Beginning of Something I hope",
 	"id": "blogEntry0",
-	"age": 0,
 	"tags": "Start, Beginning, Something"
 }, {
 	"snippet": "It was brought to my attention, by my friend",
 	"date": "September 23, 2014",
 	"thumbnail": "img\/github_icon.png",
-	"name": "Mehh Updates",
+	"title": "Mehh Updates",
 	"id": "blogEntry1",
-	"age": -1,
 	"tags": "Updates, gotta, do, something"
 }, {
 	"snippet": "After a two long week of exams its time to finally update and learn",
 	"date": "December 12, 2014",
 	"thumbnail": "img\/thumbnail\/50.jpg",
-	"name": "Finally Winter Has Arrived",
+	"title": "Finally Winter Has Arrived",
 	"id": "blogEntry2",
-	"age": -2,
 	"tags": "speedrun, extracurricular, work, school"
 }, {
 	"snippet": "With the new summer much hase started I now have free time to write blogs and also\nfix it. I am so happy that I have been able to automate the blog, and start my \ncontent management system. Now I only",
 	"date": "May 17, 2015",
 	"thumbnail": "img\/thumbnail\/Hetaliafan+rolls+888+_2553e790f9a9651207c8fe43cb895fcc.gif",
-	"name": "For the first time in a long time",
+	"title": "For the first time in a long time",
 	"id": "blogEntry7",
-	"age": -7,
 	"tags": "Automation, faster, better, blog, java"
 }, {
 	"date": "May 18, 2015",
 	"snippet": "It\u2019s Monday, May 18, 2015 \u2026 and here is how it happens\u2026.. DUM DUM  ~ music tune\u2026 beep bloop. blop. Cheesy intro end here. Man I wish I could write better introductions, but I much prefer my un - edite",
 	"thumbnail": "img\/thumbnail\/1204647105_Coffee_Break.jpg",
-	"name": "Reflection for 2014\/2015 year - thinking of success and failure",
+	"title": "Reflection for 2014\/2015 year - thinking of success and failure",
 	"id": "blogEntry8",
-	"age": -8,
 	"tags": "Reflection, CUSEC, university, school, much, thought"
 }, {
 	"date": "May 31st, 2015",
 	"snippet": "Well a month has past for the summer time, and its time to think what I have done. \nI'm starting to feel comfortable at work my other part time job has been very accommodating.\nI have been making time",
 	"thumbnail": "img\/thumbnail\/work.jpg",
-	"name": "Back to Work, This Month in Review",
+	"title": "Back to Work, This Month in Review",
 	"id": "blogEntry9",
-	"age": -9,
 	"tags": "review, workout, education, work,  jobs"
 }, {
 	"date": "August, 08, 2016",
 	"snippet": "Completely and totally inspired by an article posted on Airpair. I finally mastered or at least got a hold of my coding habits. About three months ago I promised to myself that I would spend more time",
 	"thumbnail": "img\/thumbnail\/Seclogo.jpg",
-	"name": "Mastering of the extracurriculars",
+	"title": "Mastering of the extracurriculars",
 	"id": "blogEntry10",
-	"age": -10,
 	"tags": "Master, work, fun, games, code"
 }, {
 	"date": "September, 12, 2015",
 	"snippet": "About a few months ago I ran into the issue of wishing to inject html or embedded elements into my blogging system.  The was an issue as the CMS (Content Management System) parsed everything as text.\n\n<img src = \"img\/thumbnail\/cms.png\" width=\"200\" height = \"200\"><\/img>\n\nYes.. That is my CMS it looks like it's still stuck in the 90's but THIS IS MY CHALLENGE build everything strictly from hard-code and use api's that are only relevant to building a front-end website. Back-end logic is to be handled all by myself.\n\nBack to the original problem. Here are the links I started off with originally to fix this string sanitization issue.\n<a href=\"http:\/\/odetocode.com\/blogs\/scott\/archive\/2014\/09\/10\/a-journey-with-trusted-html-in-angularjs.aspx\">Ode to Code<\/a>\n<a href =\"http:\/\/odetocode.com\/blogs\/scott\/archive\/2014\/09\/10\/a-journey-with-trusted-html-in-angularjs.aspx\">Stack Overflow1<\/a>\n<a href=\"http:\/\/odet",
 	"thumbnail": "img\/thumbnail\/angular.jpg",
-	"name": "Using ng-bind-html and ngSanitize",
+	"title": "Using ng-bind-html and ngSanitize",
 	"id": "blogEntry11",
-	"age": -11,
 	"tags": "Awesome, test, cms , code , angular, tuorial"
 }]

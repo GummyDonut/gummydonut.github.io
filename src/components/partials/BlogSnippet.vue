@@ -9,7 +9,13 @@ export default{
 </style>
 
 <template>
-<div class="">
-    Snippet - age : {{jsonData.age}}
+<div class="blog-snippet">
+   <h1>{{jsonData.title}}</h1> 
 </div>
 </template>
+<style>
+    div.blog-snippet {
+        color:white;
+    }
+    
+</style>
