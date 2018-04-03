@@ -6,9 +6,8 @@
         <router-view/>
         </div>
     </div>
-    <link rel="stylesheet" type="text/css" href="../static/css/base-min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/pure-min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/grids-responsive-min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/buttons-min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/custom/blog.css">
 
     <!--IBM Font Family  -->
@@ -33,7 +32,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
 }
 .backgroundSpace{
     background-image: url('../static/img/spaceWallpaper.jpg');
