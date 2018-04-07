@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import About from '@/components/layouts/About'
-import Resume from '@/components/layouts/Resume'
-import Blog from '@/components/layouts/Blog'
+import About from '@/components/pages/about/About'
+import Resume from '@/components/pages/resume/Resume'
+import Blog from '@/components/pages/blog/Blog'
 
 Vue.use(Router)
 

@@ -8,8 +8,8 @@
 
 <script>
 // import content containing seperate js snippets
-import snippets from '../../assets/blog/blog.json'
-import blogSnippet from '../partials/BlogSnippet'
+import snippets from '../../../assets/blog/blog.json'
+import blogSnippet from './components/BlogSnippet'
 export default {
   name: 'Blog',
   data () {
