@@ -47,19 +47,21 @@ export default {
     * Define the total number of pages, based on the number of items
     */
     totalPages: function () {
-      return Math.ceil(this.snippets.length / this.itemsPerPage)
+      return Math.ceil(this.filtered.length / this.itemsPerPage)
     },
 
     filtered: function () {
+      var searchLowerCaseText = this.searchText.toLowerCase()
+
       // loop through snippets and check which pass
       var filteredSnippets = this.snippets.filter(snippet => {
-        if (snippet.snippet.includes(this.searchText)) {
+        if (snippet.snippet.toLowerCase().includes(searchLowerCaseText)) {
           return true
-        } else if (snippet['date'].includes(this.searchText)) {
+        } else if (snippet['date'].toLowerCase().includes(searchLowerCaseText)) {
           return true
-        } else if (snippet.title.includes(this.searchText)) {
+        } else if (snippet.title.toLowerCase().includes(searchLowerCaseText)) {
           return true
-        } else if (snippet.tags.includes(this.searchText)) {
+        } else if (snippet.tags.toLowerCase().includes(searchLowerCaseText)) {
           return true
         }
         return false
