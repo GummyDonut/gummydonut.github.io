@@ -1,5 +1,6 @@
 <template>
   <div class="blog">
+    <input v-model="searchText" type="text" placeholder="search"/>
     <div v-for="(snippet, index) in paginate" :key="'snippet-' + index" >
         <blog-snippet :jsonData="snippet"></blog-snippet>
     </div>
@@ -25,7 +26,8 @@ export default {
       'snippets': snippets,
       'currentPage': 0,
       'itemsPerPage': 6,
-      'resultCount': 0
+      'resultCount': 0,
+      'searchText': ''
     }
   },
   components: {
@@ -48,6 +50,28 @@ export default {
       return Math.ceil(this.snippets.length / this.itemsPerPage)
     },
 
+    filtered: function () {
+      // loop through snippets and check which pass
+      var filteredSnippets = this.snippets.filter(snippet => {
+        if (snippet.snippet.includes(this.searchText)) {
+          return true
+        } else if (snippet['date'].includes(this.searchText)) {
+          return true
+        } else if (snippet.title.includes(this.searchText)) {
+          return true
+        } else if (snippet.tags.includes(this.searchText)) {
+          return true
+        }
+        return false
+      })
+
+      if (filteredSnippets.length === 0) {
+        filteredSnippets = snippets
+      }
+
+      return filteredSnippets
+    },
+
     /**
     * Filter for showing only items that are necessary
     */
@@ -57,9 +81,11 @@ export default {
       //    this.currentPage = this.totalPages - 1
       //  }
 
+      var filteredSnippets = this.filtered
+
       // get items
       var index = this.currentPage * this.itemsPerPage
-      return snippets.slice(index, index + this.itemsPerPage)
+      return filteredSnippets.slice(index, index + this.itemsPerPage)
     }
   }
 }
