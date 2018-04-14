@@ -1,11 +1,13 @@
 <template>
   <div class="blog">
+    <!-- Create sort by option on this page -->
     <input v-model="searchText" type="text" placeholder="search"/>
     <div v-for="(snippet, index) in paginate" :key="'snippet-' + index" >
         <blog-snippet :jsonData="snippet"></blog-snippet>
     </div>
+    <br>
     <ul>
-        <li v-for="(pageNumber, index) in totalPages" :key="pageNumber + '-' + index">
+        <li class="pagination-link" v-for="(pageNumber, index) in totalPages" :key="pageNumber + '-' + index">
             <a href="#" @click="setPage(index)">{{ index + 1 }}</a>
         </li>
     </ul>
@@ -67,10 +69,6 @@ export default {
         return false
       })
 
-      if (filteredSnippets.length === 0) {
-        filteredSnippets = snippets
-      }
-
       return filteredSnippets
     },
 
@@ -84,6 +82,8 @@ export default {
       //  }
 
       var filteredSnippets = this.filtered
+
+      // sort by whatever setting is placed in dropdown
 
       // get items
       var index = this.currentPage * this.itemsPerPage
@@ -104,10 +104,12 @@ export default {
     ul {
         padding: 0;
         list-style-type: none;
-    }
-    li {
-        display: inline;
-        margin: 5px 5px;
+        li.pagination-link {
+            display: inline;
+            margin: 5px 5px;
+            border: 1px solid white;
+            padding: 1em;
+        }
     }
     a.first::after {
         content:'...'

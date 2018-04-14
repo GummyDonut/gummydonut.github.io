@@ -9,16 +9,16 @@ export default{
 </style>
 
 <template>
-    <div class="pure-g blog-snippet">
-       <div class="pure-u-1 pure-u-md-1-6">
-           <img :src="'/static/' + jsonData.thumbnail">
-       </div>
-       <div class="pure-u-1 pure-u-md-5-6">
+    <div class="blog-snippet">
            <h1>{{jsonData.title}}</h1>
+           <img class="blog-snippet-thumbnail" :src="'/static/' + jsonData.thumbnail">
+           <span class="blog-snippet-date">Posted on {{jsonData.date}}</span>
            <p>
              {{jsonData.snippet}}
            </p>
-       </div>
+           <p>
+             Tags: {{jsonData.tags}}
+           </p>
        <hr>
     </div>
 </template>
@@ -28,20 +28,26 @@ export default{
         margin-top:1em;
         h1 {
             font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-            font-weight:400;
-            font-style:normal;
+            font-weight:800;
         }
         p {
             font-family: 'IBM Plex Serif', 'Georgia', Times, serif;
+            font-weight:400;
         }
         hr {
             height:0.1px;
             width:80%;
             margin-left:0;
         }
-        img {
-            width:100%;
-            height:100px;
+        img.blog-snippet-thumbnail{
+            width:50px;
+            height:50px;
+        }
+        span.blog-snippet-date{
+            display:inline;
+            margin-left:0.5em;
+            position: relative;
+            top:-0.5em;
         }
    }
 </style>
