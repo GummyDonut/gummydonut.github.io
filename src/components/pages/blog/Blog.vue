@@ -1,6 +1,12 @@
 <template>
   <div class="blog">
     <!-- Create sort by option on this page -->
+    Sort By:
+    <select v-model="sortBy">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="alphabetical">Alphabetical</option>
+    </select>
     <input v-model="searchText" type="text" placeholder="search"/>
     <div v-for="(snippet, index) in paginate" :key="'snippet-' + index" >
         <blog-snippet :jsonData="snippet"></blog-snippet>
@@ -29,7 +35,8 @@ export default {
       'currentPage': 0,
       'itemsPerPage': 6,
       'resultCount': 0,
-      'searchText': ''
+      'searchText': '',
+      'sortBy': 'newest'
     }
   },
   components: {
@@ -41,6 +48,21 @@ export default {
   methods: {
     setPage: function (pageNumber) {
       this.currentPage = pageNumber
+    },
+    sortAlphaTitle (snippets) {
+      return snippets.sort(function (a, b) {
+        if (a.title < b.title) { return -1 } else if (a.title > b.title) { return 1 } else { return 0 }
+      })
+    },
+    sortNewestDate (snippets) {
+      return snippets.sort(function (a, b) {
+        return new Date(b.date) - new Date(a.date)
+      })
+    },
+    sortOldestDate (snippets) {
+      return snippets.sort(function (a, b) {
+        return new Date(a.date) - new Date(b.date)
+      })
     }
   },
   computed: {
@@ -84,6 +106,19 @@ export default {
       var filteredSnippets = this.filtered
 
       // sort by whatever setting is placed in dropdown
+      switch (this.sortBy) {
+        case 'newest':
+          filteredSnippets = this.sortNewestDate(filteredSnippets)
+          break
+        case 'oldest':
+          filteredSnippets = this.sortOldestDate(filteredSnippets)
+          break
+        case 'alphabetical':
+          filteredSnippets = this.sortAlphaTitle(filteredSnippets)
+          break
+        default:
+          filteredSnippets = this.sortNewestDate(filteredSnippets)
+      }
 
       // get items
       var index = this.currentPage * this.itemsPerPage
@@ -95,6 +130,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+
+    .blog {
+      color: white;
+      select {
+        color: black;
+      }
+    }
     a {
         color: #999;
     }
