@@ -10,7 +10,7 @@ export default{
 
 <template>
     <div class="blog-snippet">
-           <h1>{{jsonData.title}}</h1>
+           <h1><router-link :to="{path: '/blog/' + jsonData.id}">{{jsonData.title}}</router-link></h1>
            <img class="blog-snippet-thumbnail" :src="'/static/' + jsonData.thumbnail">
            <span class="blog-snippet-date">Posted on {{jsonData.date}}</span>
            <p>
@@ -29,6 +29,9 @@ export default{
         h1 {
             font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
             font-weight:800;
+            a {
+                color: white;
+            }
         }
         p {
             font-family: 'IBM Plex Serif', 'Georgia', Times, serif;
