@@ -1,15 +1,26 @@
 <template>
     <div>
-       {{$route.params.blog}}
+        {{data.title}}
     </div>
 </template>
 
 <script>
 export default {
   name: 'BlogEntry',
-  created () {
-    console.log('test')
-    console.log(this.$route.params.blog)
+  data () {
+    return {
+      data: {}
+    }
+  },
+  methods: {
+
+    // https://vuejs-templates.github.io/webpack/static.html
+    getBlogEntry () {
+      return require('../../../assets/blog/' + this.$route.params.blog + '.json')
+    }
+  },
+  beforeMount () {
+    this.data = this.getBlogEntry()
   }
 }
 </script>
