@@ -19,3 +19,21 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+## Inspirations for website
+Background design : https://githubuniverse.com/
+
+## Color scheme
+For modal blog entries: #22292C
+Recent posts: #374044e8
+
+## transform background idea
+https://www.youtube.com/watch?v=WmEcxGghzHE - may work well for resume page
+
+## Moving particles effect for resume section possibly
+https://onextrapixel.com/futuristic-and-cosmic-incredible-sci-fi-website-designs/
+https://vincentgarreau.com/particles.js/
+
+## Animation portion with current background for about me section
+https://www.biggerpicture.agency/
