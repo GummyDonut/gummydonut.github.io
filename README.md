@@ -37,3 +37,5 @@ https://vincentgarreau.com/particles.js/
 
 ## Animation portion with current background for about me section
 https://www.biggerpicture.agency/
+
+## Need to provide solid background for blog archive page
