@@ -133,6 +133,10 @@ export default {
 
     .blog {
       color: white;
+      padding: 2em 1em 0;
+      @media (min-width: 48em) {
+          padding: 2em 3em 0;
+      }
       select {
         color: black;
       }

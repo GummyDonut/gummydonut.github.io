@@ -4,7 +4,10 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
+    .brand-tagline {
+        font-weight:400;
+    }
 </style>
 
 <template>

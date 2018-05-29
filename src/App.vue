@@ -36,4 +36,10 @@ export default {
 .backgroundSpace{
     background-image: url('../static/img/spaceWallpaper.jpg');
 }
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+p {
+    font-family: 'IBM Plex Condensed', 'Georgia', Times, serif;
+}
 </style>
