@@ -33,8 +33,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-.backgroundSpace{
-    background-image: url('../static/img/spaceWallpaper.jpg');
+html, body{
+  background-color:#23292c;
 }
 h1,h2,h3,h4,h5,h6 {
     font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
