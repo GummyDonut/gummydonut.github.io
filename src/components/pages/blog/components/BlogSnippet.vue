@@ -10,25 +10,27 @@ export default{
 
 <template>
     <div class="blog-snippet">
-           <h1><router-link :to="{path: '/blog/' + jsonData.id}">{{jsonData.title}}</router-link></h1>
-           <img class="blog-snippet-thumbnail" :src="'/static/' + jsonData.thumbnail">
-           <span class="blog-snippet-date">Posted on {{jsonData.date}}</span>
-           <p>
-             {{jsonData.snippet}}
-           </p>
-           <p>
-             Tags: {{jsonData.tags}}
-           </p>
-       <hr>
+       <h1><router-link :to="{path: '/blog/' + jsonData.id}">{{jsonData.title}}</router-link></h1>
+       <img class="blog-snippet-thumbnail" :src="'/static/' + jsonData.thumbnail">
+       <span class="blog-snippet-date">Posted on {{jsonData.date}}</span>
+       <p>
+         {{jsonData.snippet}}
+       </p>
+       <p>
+         Tags: {{jsonData.tags}}
+       </p>
     </div>
 </template>
 <style lang="scss">
     div.blog-snippet {
+        background-color:#3d4446;
+        padding:1em;
         color:white;
         margin-top:1em;
         h1 {
             font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
             font-weight:800;
+            margin-top:0;
             a {
                 color: white;
             }
