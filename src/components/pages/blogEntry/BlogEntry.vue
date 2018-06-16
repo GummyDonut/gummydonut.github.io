@@ -47,12 +47,12 @@ export default {
   },
   computed: {
     blogText: {
-        /**
+      /**
         * Parse out the content so that it is readbable by the blog
         */
-        get() {
-            return this.data.text.replace(/\n/g, "<br>")
-        }
+      get () {
+        return this.data.text.replace(/\n/g, '<br>')
+      }
     }
   },
   beforeMount () {
