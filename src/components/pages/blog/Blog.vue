@@ -2,14 +2,14 @@
   <div class="blog">
     <!-- Create sort by option on this page -->
     <div class="pure-g">
-        <div class="pure-u-1">
-        Sort By:
-        <select v-model="sortBy">
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
-            <option value="alphabetical">Alphabetical</option>
-        </select>
-        <input v-model="searchText" type="text" placeholder="search"/>
+        <div id="sort-bar" class="pure-u-1 element-shadow">
+            Sort By:
+            <select v-model="sortBy">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="alphabetical">Alphabetical</option>
+            </select>
+            <input class="search-input" v-model="searchText" type="text" placeholder="search"/>
         </div>
     </div>
     <div v-for="(snippet, index) in paginate" :key="'snippet-' + index" >
@@ -135,6 +135,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 
+    #sort-bar {
+      background-color: #3d4446;
+      padding:1em;
+      margin-bottom:1em;
+    }
+    input.search-input {
+        color:black;
+    }
     .blog {
       color: white;
       padding: 2em 1em 0;

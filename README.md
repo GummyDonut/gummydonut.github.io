@@ -28,6 +28,13 @@ Background design : https://githubuniverse.com/
 For modal blog entries: #22292C
 Recent posts: #374044e8
 
+## Box shadow for components
+```
+-webkit-box-shadow: 12px 12px 30px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 12px 12px 30px 0px rgba(0,0,0,0.75);
+box-shadow: 12px 12px 30px 0px rgba(0,0,0,0.75);
+```
+
 ## transform background idea
 https://www.youtube.com/watch?v=WmEcxGghzHE - may work well for resume page
 
