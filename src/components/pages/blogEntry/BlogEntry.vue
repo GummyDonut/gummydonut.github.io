@@ -1,6 +1,6 @@
 <template>
     <div class="pure-g">
-        <div class="blogBody pure-u-1 pure-u-md-3-4">
+        <div class="blogBody element-shadow pure-u-1 pure-u-md-3-4">
             <h1>{{data.title}}</h1>
             <img class="entryThumbnail" :src="'/static/' + data.thumbnail"/>
             <p class="entryDate">Posted on {{data.date}}</p>

@@ -1,13 +1,17 @@
 <template>
   <div class="blog">
     <!-- Create sort by option on this page -->
-    Sort By:
-    <select v-model="sortBy">
-        <option value="newest">Newest</option>
-        <option value="oldest">Oldest</option>
-        <option value="alphabetical">Alphabetical</option>
-    </select>
-    <input v-model="searchText" type="text" placeholder="search"/>
+    <div class="pure-g">
+        <div class="pure-u-1">
+        Sort By:
+        <select v-model="sortBy">
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="alphabetical">Alphabetical</option>
+        </select>
+        <input v-model="searchText" type="text" placeholder="search"/>
+        </div>
+    </div>
     <div v-for="(snippet, index) in paginate" :key="'snippet-' + index" >
         <blog-snippet :jsonData="snippet"></blog-snippet>
     </div>

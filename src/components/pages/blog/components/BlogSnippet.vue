@@ -9,7 +9,7 @@ export default{
 </style>
 
 <template>
-    <div class="blog-snippet">
+    <div class="blog-snippet element-shadow">
        <h1><router-link :to="{path: '/blog/' + jsonData.id}">{{jsonData.title}}</router-link></h1>
        <img class="blog-snippet-thumbnail" :src="'/static/' + jsonData.thumbnail">
        <span class="blog-snippet-date">Posted on {{jsonData.date}}</span>
