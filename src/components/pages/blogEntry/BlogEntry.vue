@@ -1,6 +1,6 @@
 <template>
-    <div class="pure-g">
-        <div class="blogBody element-shadow pure-u-1 pure-u-md-3-4">
+    <div class="blog-container pure-g element-light-shadow">
+        <div class="blogBody pure-u-1 pure-u-md-3-4">
             <h1>{{data.title}}</h1>
             <img class="entryThumbnail" :src="'/static/' + data.thumbnail"/>
             <p class="entryDate">Posted on {{data.date}}</p>
@@ -64,6 +64,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+    div.blog-container{
+        min-height:100%;
+    }
     div.blogBody {
         background-color:#22292C;
         color:white;

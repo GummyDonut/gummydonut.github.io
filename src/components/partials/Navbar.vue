@@ -11,7 +11,7 @@ export default{
 </style>
 
 <template>
-<div class="sidebar pure-u-1 pure-u-md-1-6"> <!--Temporary fix on the computer side not on the phone side-->
+<div class="sidebar element-light-shadow pure-u-1 pure-u-md-1-6"> <!--Temporary fix on the computer side not on the phone side-->
         <div class="header">
             <img src="static/img/logo.png" class="logo">
             <a style="color:#ffffff;" href="#/blog"><h1 class="brand-title">Peter's Void</h1></a>
