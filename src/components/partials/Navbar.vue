@@ -8,9 +8,13 @@ export default{
     .brand-tagline {
         font-weight:400;
     }
+    .sidebar {
+        z-index: 10000;
+    }
 </style>
 
 <template>
+<!-- https://github.com/oddbird/susy/issues/93 navbar width inconsitency possibly due to rounding? -->
 <div class="sidebar element-light-shadow pure-u-1 pure-u-md-1-6"> <!--Temporary fix on the computer side not on the phone side-->
         <div class="header">
             <img src="static/img/logo.png" class="logo">

@@ -1,7 +1,6 @@
 <!-- Code originally from here https://github.com/VincentGarreau/particles.js/issues/192 -->
 <template>
   <div id='particles-js'>
-    <h1>TESTINSIDE</h1>
   </div>
 </template>
 
@@ -21,7 +20,7 @@ export default {
       particlesJS('particles-js', {
   "particles": {
     "number": {
-      "value": 20,
+      "value": 80,
       "density": {
         "enable": true,
         "value_area": 800
@@ -137,4 +136,14 @@ export default {
 
 <style>
 /* Your styles */
+#particles-js{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #000;
+  background-image: url('');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
 </style>
