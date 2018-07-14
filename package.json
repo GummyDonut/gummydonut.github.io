@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "particle.js": "^1.0.7",
-    "vue": "^2.5.2",
+    "particles.js": "^2.0.0",
+    "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
