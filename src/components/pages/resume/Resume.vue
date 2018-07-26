@@ -4,7 +4,12 @@ export default {
   name: 'Resume',
   data () {
     return {
-      isMobile: false
+      isMobile: false,
+      showWorkExperience: false,
+      showSideProject: false,
+      showWork: false,
+      showTech: false,
+      showEducation: false
     }
   },
   mounted () {
@@ -29,30 +34,53 @@ export default {
       <div :class="getClasses()">
         <div class="pure-g">
           <div class="pure-u-1">
-            <a href="https://www.linkedin.com/in/peterhoang1/">
+            <a target="_blank" href="https://www.linkedin.com/in/peterhoang1/">
               <img class="hover-icon" style="margin-bottom:-1.25em;" :src="'/static/img/github_icon.png'">
             </a>
-            <a href="https://github.com/lantern77">
+            <a target="_blank" href="https://github.com/lantern77">
             <img class="hover-icon" style="width:92px;height:92px;" :src="'/static/img/linkedin-icon.png'">
             </a>
           </div>
           <div class="pure-u-1">
-            <h1 class="resume-title">Work Experience</h1>
-            <div class="resume-section">
-              Test
-            </div>
+            <h1 @click="showWorkExperience = !showWorkExperience" class="resume-title">Work Experience</h1>
+            <transition name="fade">
+                <div v-if="showWorkExperience" class="resume-section">
+                  Work Experience
+                </div>
+            </transition>
           </div>
           <div class="pure-u-1">
-            <h1 class="resume-title">Side Projects</h1>
+            <h1 @click="showSideProject = !showSideProject" class="resume-title">Side Projects</h1>
+            <transition name="fade">
+                <div v-if="showSideProject" class="resume-section">
+                  Side Projects
+                </div>
+            </transition>
+          </div>
           </div>
           <div class="pure-u-1">
-            <h1 class="resume-title">Outside Work</h1>
+            <h1 @click="showWork = !showWork" class="resume-title">Outside Work</h1>
+            <transition name="fade">
+                <div v-if="showWork" class="resume-section">
+                  Side Projects
+                </div>
+            </transition>
           </div>
           <div class="pure-u-1">
-            <h1 class="resume-title">Technology &amp; Related</h1>
+            <h1 @click="showTech = !showTech" class="resume-title">Technology &amp; Related</h1>
+            <transition name="fade">
+                <div v-if="showTech" class="resume-section">
+                  Side Projects
+                </div>
+            </transition>
           </div>
           <div class="pure-u-1">
-            <h1 class="resume-title">Education</h1>
+            <h1 @click="showEducation = !showEducation" class="resume-title">Education</h1>
+            <transition name="fade">
+                <div v-if="showEducation" class="resume-section">
+                  Side Projects
+                </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -62,6 +90,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.25s ease-out;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 
 .resume-section {
   background-color: #3d4446;
