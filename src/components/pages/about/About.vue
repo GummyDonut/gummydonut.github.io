@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    About section
+    <h1>Gamers Don't Die They Respawn</h1>
   </div>
 </template>
 
