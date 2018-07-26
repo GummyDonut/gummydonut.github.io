@@ -1,5 +1,6 @@
 <script>
 import particlesJs from '@/components/partials/ParticlesJS'
+import ResumeSection from './components/resume-section'
 export default {
   name: 'Resume',
   data () {
@@ -24,7 +25,8 @@ export default {
     }
   },
   components: {
-    particlesJs
+    particlesJs,
+    ResumeSection
   }
 }
 </script>
@@ -45,7 +47,23 @@ export default {
             <h1 @click="showWorkExperience = !showWorkExperience" class="resume-title">Work Experience</h1>
             <transition name="fade">
                 <div v-if="showWorkExperience" class="resume-section">
-                  Work Experience
+                    <resume-section title="Evertz Microsystems - Junior Design Engineer" date="May 2017 - Present">
+                        <template slot="left-content">
+                        left
+                        </template>
+                        <template slot="right-content">
+                        right
+                        </template>
+                    </resume-section>
+                    <hr>
+                    <resume-section title="Evertz Microsystems - Junior Design Engineer" date="May 2017 - Present">
+                        <template slot="left-content">
+                        left
+                        </template>
+                        <template slot="right-content">
+                        right
+                        </template>
+                    </resume-section>
                 </div>
             </transition>
           </div>
@@ -90,7 +108,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+hr {
+  width:80%;
+  margin-top:0.75em;
+  margin-bottom:0.75em;
+}
 
+/*Transition animation */
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.25s ease-out;
 }
@@ -104,6 +128,7 @@ export default {
   width:75%;
   margin-left:auto;
   margin-right:auto;
+  padding:0.5em;
 }
 .resume-title {
   cursor:pointer;
