@@ -22,6 +22,10 @@ export default {
     getClasses () {
       let background = (this.isMobile) ? ' mobile-background' : ''
       return 'resume-content' + background
+    },
+    // Note dataKey is a string
+    toggleSection(dataKey){
+      this[dataKey] = !this[dataKey]
     }
   },
   components: {
@@ -44,7 +48,7 @@ export default {
             </a>
           </div>
           <div class="pure-u-1">
-            <h1 @click="showWorkExperience = !showWorkExperience" class="resume-title">Work Experience</h1>
+            <h1 @click="toggleSection('showWorkExperience')" class="resume-title">Work Experience</h1>
             <transition name="fade">
                 <div v-if="showWorkExperience" class="resume-section">
                     <resume-section title="Evertz Microsystems - Junior Design Engineer" date="May 2017 - Present">
@@ -68,7 +72,7 @@ export default {
             </transition>
           </div>
           <div class="pure-u-1">
-            <h1 @click="showSideProject = !showSideProject" class="resume-title">Side Projects</h1>
+            <h1 @click="toggleSection('showSideProject')" class="resume-title">Side Projects</h1>
             <transition name="fade">
                 <div v-if="showSideProject" class="resume-section">
                   Side Projects
@@ -77,7 +81,7 @@ export default {
           </div>
           </div>
           <div class="pure-u-1">
-            <h1 @click="showWork = !showWork" class="resume-title">Outside Work</h1>
+            <h1 @click="toggleSection('showWork')" class="resume-title">Outside Work</h1>
             <transition name="fade">
                 <div v-if="showWork" class="resume-section">
                   Side Projects
@@ -85,7 +89,7 @@ export default {
             </transition>
           </div>
           <div class="pure-u-1">
-            <h1 @click="showTech = !showTech" class="resume-title">Technology &amp; Related</h1>
+            <h1 @click="toggleSection('showTech')" class="resume-title">Technology &amp; Related</h1>
             <transition name="fade">
                 <div v-if="showTech" class="resume-section">
                   Side Projects
@@ -93,7 +97,7 @@ export default {
             </transition>
           </div>
           <div class="pure-u-1">
-            <h1 @click="showEducation = !showEducation" class="resume-title">Education</h1>
+            <h1 @click="toggleSection('showEducation')" class="resume-title">Education</h1>
             <transition name="fade">
                 <div v-if="showEducation" class="resume-section">
                   Side Projects
