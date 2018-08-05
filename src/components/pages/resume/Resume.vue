@@ -24,7 +24,7 @@ export default {
       return 'resume-content' + background
     },
     // Note dataKey is a string
-    toggleSection(dataKey){
+    toggleSection (dataKey) {
       this[dataKey] = !this[dataKey]
     }
   },
@@ -106,7 +106,6 @@ export default {
           </div>
         </div>
       </div>
-    </div>
 
 </template>
 
