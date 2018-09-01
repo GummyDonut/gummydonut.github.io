@@ -1,5 +1,6 @@
 <script>
-import particlesJs from '@/components/partials/ParticlesJS'
+//import particlesJs from '@/components/partials/ParticlesJS'
+import StarsSection from '@/components/partials/StarsJS'
 import ResumeSection from './components/resume-section'
 export default {
   name: 'Resume',
@@ -29,14 +30,15 @@ export default {
     }
   },
   components: {
-    particlesJs,
-    ResumeSection
+    //particlesJs,
+    ResumeSection,
+    StarsSection 
   }
 }
 </script>
 <template>
     <div>
-      <particles-js v-if="!isMobile" />
+      <stars-section v-if="!isMobile" />
       <div :class="getClasses()">
         <div class="pure-g">
           <div class="pure-u-1">
