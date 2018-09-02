@@ -5,7 +5,6 @@ export default {
   name: 'Resume',
   data () {
     return {
-      isMobile: false,
       showWorkExperience: false,
       showSideProject: false,
       showWork: false,
@@ -13,15 +12,9 @@ export default {
       showEducation: false
     }
   },
-  mounted () {
-    if (window.innerWidth <= 800 && window.innerHeight <= 600) {
-      this.isMobile = true
-    }
-  },
   methods: {
     getClasses () {
-      let background = (this.isMobile) ? ' mobile-background' : ''
-      return 'resume-content' + background
+      return 'resume-content'
     },
     // Note dataKey is a string
     toggleSection (dataKey) {
@@ -29,7 +22,6 @@ export default {
     }
   },
   components: {
-    // particlesJs,
     ResumeSection,
     StarsSection
   }
@@ -37,7 +29,7 @@ export default {
 </script>
 <template>
     <div>
-      <stars-section v-if="!isMobile" />
+      <stars-section />
       <div :class="getClasses()">
         <div class="pure-g">
           <div class="pure-u-1">
@@ -51,7 +43,7 @@ export default {
           <div class="pure-u-1">
             <h1 @click="toggleSection('showWorkExperience')" class="resume-title">Work Experience</h1>
             <transition name="fade">
-                <div v-if="showWorkExperience" class="resume-section">
+                <div v-if="showWorkExperience" class="resume-section element-thin-shadow">
                     <resume-section title="Evertz Microsystems - Junior Design Engineer" date="May 2017 - Present">
                         <template slot="left-content">
                         left
@@ -75,7 +67,7 @@ export default {
           <div class="pure-u-1">
             <h1 @click="toggleSection('showSideProject')" class="resume-title">Side Projects</h1>
             <transition name="fade">
-                <div v-if="showSideProject" class="resume-section">
+                <div v-if="showSideProject" class="resume-section element-thin-shadow">
                   Side Projects
                 </div>
             </transition>
@@ -84,7 +76,7 @@ export default {
           <div class="pure-u-1">
             <h1 @click="toggleSection('showWork')" class="resume-title">Outside Work</h1>
             <transition name="fade">
-                <div v-if="showWork" class="resume-section">
+                <div v-if="showWork" class="resume-section element-thin-shadow">
                   Side Projects
                 </div>
             </transition>
@@ -92,7 +84,7 @@ export default {
           <div class="pure-u-1">
             <h1 @click="toggleSection('showTech')" class="resume-title">Technology &amp; Related</h1>
             <transition name="fade">
-                <div v-if="showTech" class="resume-section">
+                <div v-if="showTech" class="resume-section element-thin-shadow">
                   Side Projects
                 </div>
             </transition>
@@ -100,7 +92,7 @@ export default {
           <div class="pure-u-1">
             <h1 @click="toggleSection('showEducation')" class="resume-title">Education</h1>
             <transition name="fade">
-                <div v-if="showEducation" class="resume-section">
+                <div v-if="showEducation" class="resume-section element-thin-shadow">
                   Side Projects
                 </div>
             </transition>

@@ -4,6 +4,7 @@
     <div class="p p-1"></div>
     <div class="p p-2"></div>
     <div class="p p-3"></div>     
+    <div class="p p-4"></div>     
   </div>
 </template>
 
@@ -13,6 +14,7 @@ export default {
 </script>
 
 <style>
+/* What the animation consists of */
 @keyframes particleAnimation
 {
     from {
@@ -23,6 +25,7 @@ export default {
     }
 }
 
+/* Initiate the point*/
 .p{
   position:fixed;
   left:0px;
@@ -45,15 +48,20 @@ export default {
   height:1px;
   background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(255,255,255,0.4) 100%); 
 }
+/*Give each point a different duration*/
 .p-1{
   animation-duration:10s;
 }
 .p-2{
   animation-duration:5s;
-  top:60%;
+  top:30%;
 }
 .p-3{
-  animation-duration:20s;
+  animation-duration:18s;
+  top:60%;
+}
+.p-4{
+  animation-duration:8s;
   top:90%;
 }
 </style>
