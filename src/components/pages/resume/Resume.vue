@@ -43,7 +43,7 @@ export default {
           <div class="pure-u-1">
             <h1 @click="toggleSection('showWorkExperience')" class="resume-title">Work Experience</h1>
             <transition name="fade">
-                <div v-if="showWorkExperience" class="resume-section element-thin-shadow">
+                <div v-if="showWorkExperience" class="resume-section element-shadow">
                     <resume-section title="Evertz Microsystems - Junior Design Engineer" date="May 2017 - Present">
                         <template slot="left-content">
                         left
@@ -67,7 +67,7 @@ export default {
           <div class="pure-u-1">
             <h1 @click="toggleSection('showSideProject')" class="resume-title">Side Projects</h1>
             <transition name="fade">
-                <div v-if="showSideProject" class="resume-section element-thin-shadow">
+                <div v-if="showSideProject" class="resume-section element-shadow">
                   Side Projects
                 </div>
             </transition>
@@ -76,7 +76,7 @@ export default {
           <div class="pure-u-1">
             <h1 @click="toggleSection('showWork')" class="resume-title">Outside Work</h1>
             <transition name="fade">
-                <div v-if="showWork" class="resume-section element-thin-shadow">
+                <div v-if="showWork" class="resume-section element-shadow">
                   Side Projects
                 </div>
             </transition>
@@ -84,7 +84,7 @@ export default {
           <div class="pure-u-1">
             <h1 @click="toggleSection('showTech')" class="resume-title">Technology &amp; Related</h1>
             <transition name="fade">
-                <div v-if="showTech" class="resume-section element-thin-shadow">
+                <div v-if="showTech" class="resume-section element-shadow">
                   Side Projects
                 </div>
             </transition>
@@ -92,7 +92,7 @@ export default {
           <div class="pure-u-1">
             <h1 @click="toggleSection('showEducation')" class="resume-title">Education</h1>
             <transition name="fade">
-                <div v-if="showEducation" class="resume-section element-thin-shadow">
+                <div v-if="showEducation" class="resume-section element-shadow">
                   Side Projects
                 </div>
             </transition>
