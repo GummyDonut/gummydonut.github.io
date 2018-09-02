@@ -1,5 +1,4 @@
 <script>
-//import particlesJs from '@/components/partials/ParticlesJS'
 import StarsSection from '@/components/partials/StarsJS'
 import ResumeSection from './components/resume-section'
 export default {
@@ -30,9 +29,9 @@ export default {
     }
   },
   components: {
-    //particlesJs,
+    // particlesJs,
     ResumeSection,
-    StarsSection 
+    StarsSection
   }
 }
 </script>

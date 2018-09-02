@@ -50,10 +50,10 @@
       <div class="pure-u-1">
         <h1>Hobbies</h1>
         <p>
-          When the work is done, it's time to cool off. Hobbies are a huge attribute to my success, 
-          they have helped me develop or enhance skills that I can apply at the workplace. Hobbies help 
-          have been the largest tool for challenging myself on a daily basis and help manage stress when the 
-          going gets tough. So here are some hobbies I do regularly, you might enjoy some of these. 
+          When the work is done, it's time to cool off. Hobbies are a huge attribute to my success,
+          they have helped me develop or enhance skills that I can apply at the workplace. Hobbies help
+          have been the largest tool for challenging myself on a daily basis and help manage stress when the
+          going gets tough. So here are some hobbies I do regularly, you might enjoy some of these.
         </p>
       </div>
     </div>
@@ -63,8 +63,8 @@
             <h2>Origami</h2>
             <p>
             Also known as golden venture folding or 3D origami, it's the art of building paper triangles
-            and assembling them into magnificent structures. Folding paper triangles provides meditative effects, the repetitive nature of the folding relieves 
-            a significants amount of stress. Whilst building the structures enhances my creativity, having the 
+            and assembling them into magnificent structures. Folding paper triangles provides meditative effects, the repetitive nature of the folding relieves
+            a significants amount of stress. Whilst building the structures enhances my creativity, having the
             foresight to be able to construct these sculptures builds this skill. A skill that is extremely useful
             at work, specifically when designing and making software for customers.
             </p>
@@ -80,7 +80,7 @@
             Playing these games on a competitive level improves confidence, starting from zero and working towards being good at something is extremely satisfying.
             And unlike games where you simply play to increase a number on a remote server somewhere like rpgs and mmo's, competitive one on one games requires you to examine your mistakes and takes the one's active participation in order to improve.
             In many ways I "level up" in life. The confidence and skills I gain from challenging myself helps prepare me for the trials at work.
-            Not only that, competiting in local tournaments, is a great way to socialize. 
+            Not only that, competiting in local tournaments, is a great way to socialize.
             It's a great opportunity to meet new people, with a common interest.
             Although I don't win often, competition with others, keeps me going, as I "always getting ready for the next challenge".
             </p>
@@ -93,7 +93,7 @@
             <p>Of course, since this website exists I use some of my time outside of work to code.
             Coding keeps my mind fresh and up to date with the latest technology. It's a by product of the software industry and thus
             in order to still be useful, I have to take the time in reading and developing software outside of work.
-            Like competitive gaming, coding is a challenge that prepares me for challenges at work and increases my confidence when 
+            Like competitive gaming, coding is a challenge that prepares me for challenges at work and increases my confidence when
             I finally learned and solved the problem that I was facing.
             </p>
             <a>Portfolio</a>
