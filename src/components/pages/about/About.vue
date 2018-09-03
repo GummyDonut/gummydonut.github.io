@@ -3,16 +3,16 @@
     <br>
     <br>
     <div style="width:auto;display:inline-block;" class="about-section element-shadow">
-      <h1 style="margin-top:0em;">Insert Quote here</h1>
+      <h1 style="margin-top:0em;">Peter Hoang</h1>
       <!-- Replace with profile pic here -->
       <img src="static/img/logo.png" class="profile-img">
       <br>
       <p style="text-align:center; margin:0">
-        Peter Hoang
+        December 07 1994
       </p>
       <hr style="width:45%;">
       <small>
-       December 07 1994
+        peter_hoang2@hotmail.com
       </small>
       <br>
       <small>
@@ -24,8 +24,15 @@
     <br>
     <div class="pure-g about-section element-shadow">
       <div style="text-align:left;" class="pure-u-1 pure-u-md-3-4" >
-        <h1>Insert title here</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+        <h1>Oha! My name is Peter</h1>
+        <p>
+         I'm just your average weird person. I hate Wednesdays, I eat food, I use VIM as my code-editor,
+         and I love to ramble on about my simplistic hobbies. 
+         I am very approachable, I live to laugh and love to talk.
+         Sure I'm not the most exciting person, I don't jump out of planes or off cliffs for the thrills. 
+         But it's the small details that make me excited, little bits of trivia, weird oddities, the simple things in life. 
+         I'm super easy to work with, grab my attention and I will put my ear to your mouth.... Uhhhh not in a weird way... Please don't be afraid ...I'm nice...
+        </p>
       </div>
       <div class="pure-u-1 pure-u-md-1-4">
       </div>
@@ -36,8 +43,15 @@
       <div class="pure-u-1 pure-u-md-1-4">
       </div>
       <div style="text-align:right;" class="pure-u-1 pure-u-md-3-4" >
-        <h1>Insert title here</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+        <h1>What I do?</h1>
+        <p>
+        I am a software developer, that mainly focuses on front-end experiences.
+        Developing User Interfaces that suit the requests of my clients.
+        I have worked for Hendershot research consultants and am currently working with Evertz microsystems.
+        Listening to others, and dissecting people's desire is my expertise XD. 
+        At the very least, I enjoy my job very much as I get a chance to create people's wildest dreams in a digital format.
+        For more check my <a>resume section</a>.
+        </p>
       </div>
     </div>
     <br>
@@ -135,7 +149,7 @@ export default {
   margin-left:1em;
   margin-right:1em;
   p {
-    font-size:16px;
+    font-size:18px;
   }
 }
 .center-align {
