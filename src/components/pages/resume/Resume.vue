@@ -41,7 +41,7 @@ export default {
 <template>
     <div>
       <stars-section />
-      <div :class="getClasses()">
+      <div :class="getClasses()" style="margin-bottom:5em;">
         <div class="pure-g">
           <div class="pure-u-1">
             <a target="_blank" href="https://github.com/lantern77">
@@ -174,12 +174,29 @@ export default {
                 <div class="pure-g" v-if="showSection.work">
                   <div style="padding:1em;" class="pure-u-1 pure-u-md-1-2">
                     <div class="section element-shadow">
-                      Test
+                      <h3>Software Engineering Club - VP External</h3>
+                      <p>
+                        This club was an important thing of my life, it gave me community, connected me to other people and helped me feel like I had purpose.
+                        Thus I decided to become the VP External of the club, I managed and planned club outreach - this included club social events, tutorials and sponsor relationships,
+                        . With this I exercised advanced time management and leadership.
+                      </p>
+                      <img class="extracurricular-img" :src="'/static/img/clubPhoto.jpg'">
                     </div>
                   </div>
                   <div style="padding:1em;" class="pure-u-1 pure-u-md-1-2">
                     <div class="section element-shadow">
-                      Test
+                      <h3>CUSEC 2015 - Head Delegate</h3>
+                      <p>
+                        One of the most hype events of that year, it's a software conference ran completely by students.
+                        Located in Montreal, it wass the best chance to get connected with professionals from all across the world.
+                        In 2015, we got to meet the a Bruce Schneier a leader in cybersecurity and twitter personality @tenderlove.
+                        As head delegate I book McMaster University's bus, hotel, and help students get involved with this event.
+                        CUSEC 2015 McMaster had a delegation of 56 students coming along all with the intention to learn and expand their horizons.
+                        This event means alot too me giving me more experience than most formal education have all combined.
+                        <br>
+                        <a href="http://2015.cusec.net/" target="blank">CUSEC 2015</a>
+                      </p>
+                      <img class="extracurricular-img" :src="'/static/img/cusec2015.png'">
                     </div>
                   </div>
                 </div>
@@ -191,17 +208,71 @@ export default {
                 <div v-if="showSection.tech" class="pure-g">
                  <div style="padding:1em;" class="pure-u-1 pure-u-md-1-3">
                     <div class="section element-shadow">
-                      Test
+                      <h3 style="text-decoration: underline;">
+                        Back-end
+                      </h3>
+                      <h4>
+                        Java
+                      </h4>
+                      <h4>
+                        PHP
+                      </h4>
+                      <h4>
+                        SQL
+                      </h4>
+                      <h4>
+                        Python
+                      </h4>
+                      <h4>
+                        NodeJS
+                      </h4>
                     </div>
                   </div>
                   <div style="padding:1em;" class="pure-u-1 pure-u-md-1-3">
                     <div class="section element-shadow">
-                      Test
+                      <h3 style="text-decoration: underline;">
+                        Web and FrontEnd
+                      </h3>
+                      <h4>
+                        VueJS
+                      </h4>
+                      <h4>
+                        JQuery
+                      </h4>
+                      <h4>
+                        HTML
+                      </h4>
+                      <h4>
+                        CSS
+                      </h4>
+                      <h4>
+                        JavaScript
+                      </h4>
+                      <h4>
+                        Laravel
+                      </h4>
                     </div>
                   </div>
                   <div style="padding:1em;" class="pure-u-1 pure-u-md-1-3">
                     <div class="section element-shadow">
-                      Test
+                      <h3 style="text-decoration: underline;">
+                        Tools/API
+                      </h3>
+                      <h4>
+                        Git
+                      </h4>
+                      <h4>
+                        SVN
+                      </h4>
+                      <h4>
+                        Linux
+                      </h4>
+                      <h4>
+                        Photoshop/Gimp
+                      </h4>
+                      <h4>
+                        VIM
+                      </h4>
                     </div>
                   </div>
                 </div>
@@ -211,7 +282,17 @@ export default {
             <h1 @click="toggleSection('education')" class="resume-title">Education</h1>
             <transition name="fade">
                 <div v-if="showSection.education" class="resume-section element-shadow">
-                  My education
+                  <h4 style="text-decoration: underline; display:inline-block; margin-top:-0.5em;">
+                    McMaster University-B.Eng Software Engineering 2016 - Hamilton Ontario
+                    <img style="display:inline-block; width:42px; height:42px; position:relative; top:1em;" :src="'/static/img/Uni_mcmaster_logo.svg'">
+                  </h4>
+                  <p>
+                    The McMaster Software Engineering program prepared me for a career in a rapidly changing environment.
+                    We were taught the fundamentals of design, documentation, algorithms, and theory.
+                    Topics that will last a life-time.
+                    With that participation in the university's extracurricular has taught me much about team-work,
+                    co-ordination, and time management.
+                  </p>
                 </div>
             </transition>
           </div>
@@ -241,6 +322,9 @@ hr {
   margin-left:auto;
   margin-right:auto;
   padding:0.5em;
+  h1,h2,h3,h4,h5,h6,h7 {
+    font-weight: bold
+  }
 }
 .resume-section {
   background-color: #3d4446;
@@ -284,5 +368,8 @@ hr {
   @media (max-width: 760px) {
     width: 100%;
   }
+}
+.extracurricular-img{
+  width:100%;
 }
 </style>

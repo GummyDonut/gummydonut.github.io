@@ -35,7 +35,11 @@ export default{
                 </ul>
                 <br>
                 -----------------
-                <p>© Test 2014 Designed By Peter Hoang Using <a href="https://angularjs.org/">AngularJS</a> and <a href="http://purecss.io/">PureCSS</a> framework</p>
+                <p>
+                  © Test 2018 Designed By Peter Hoang Using
+                  <a target="blank" href="https://vuejs.org/">
+                    VueJS
+                  </a> and <a target="blank" href="http://purecss.io/">PureCSS</a> framework</p>
             </nav>
         </div>
 </div>
