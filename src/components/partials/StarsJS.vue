@@ -3,8 +3,8 @@
   <div id='stars-js'>
     <div class="p p-1"></div>
     <div class="p p-2"></div>
-    <div class="p p-3"></div>     
-    <div class="p p-4"></div>     
+    <div class="p p-3"></div>
+    <div class="p p-4"></div>
   </div>
 </template>
 
@@ -46,7 +46,7 @@ export default {
   right:1px;
   top:0px;
   height:1px;
-  background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(255,255,255,0.4) 100%); 
+  background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(255,255,255,0.4) 100%);
 }
 /*Give each point a different duration*/
 .p-1{

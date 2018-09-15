@@ -5,11 +5,13 @@ export default {
   name: 'Resume',
   data () {
     return {
-      showWorkExperience: false,
-      showSideProject: false,
-      showWork: false,
-      showTech: false,
-      showEducation: false
+      showSection: {
+        'workExperience': false,
+        'sideProjects': false,
+        'work': false,
+        'tech': false,
+        'education': false
+      }
     }
   },
   methods: {
@@ -18,7 +20,16 @@ export default {
     },
     // Note dataKey is a string
     toggleSection (dataKey) {
-      this[dataKey] = !this[dataKey]
+      // close all sections beside the one that was clicked
+      for (let sectionKey in this.showSection) {
+        if (sectionKey === dataKey) {
+          continue
+        }
+
+        this.showSection[sectionKey] = false
+      }
+
+      this.showSection[dataKey] = !this.showSection[dataKey]
     }
   },
   components: {
@@ -41,9 +52,9 @@ export default {
             </a>
           </div>
           <div class="pure-u-1">
-            <h1 @click="toggleSection('showWorkExperience')" class="resume-title">Work Experience</h1>
+            <h1 @click="toggleSection('workExperience')" class="resume-title">Work Experience</h1>
             <transition name="fade">
-                <div v-if="showWorkExperience" class="resume-section element-shadow">
+                <div v-if="showSection.workExperience" class="resume-section element-shadow">
                     <resume-section title="Evertz Microsystems - Junior Design Engineer" date="May 2017 - Present">
                         <template slot="left-content">
                         left
@@ -60,7 +71,7 @@ export default {
                           JavaScript, VueJS, NodeJS, ExpressJS, Java, SpringMVC, SVN, Linux, Windows, HTML, and CSS  .
                           <br>
                           <br>
-                          Milestones: 
+                          Milestones:
                           <br>
                           6 month conversion of legacy UI from JQuery to a fully fledged framework VueJS. Streamlining the companies
                           code base into a more manageable, componentized code base.
@@ -111,10 +122,10 @@ export default {
                           Java, JavaScript, Java2EE, HTML and CSS
                           <br>
                           <br>
-                          Milestones: 
+                          Milestones:
                           <br>
                           Fast paced work environment, involving daily scrums and biweekly sprints.
-                          Semi-flexible schedule for students. A great learning experience. 
+                          Semi-flexible schedule for students. A great learning experience.
                           <br>
                         </template>
                     </resume-section>
@@ -123,9 +134,9 @@ export default {
             </transition>
           </div>
           <div class="pure-u-1">
-            <h1 @click="toggleSection('showSideProject')" class="resume-title">Side Projects</h1>
+            <h1 @click="toggleSection('sideProjects')" class="resume-title">Side Projects</h1>
             <transition name="fade">
-                <div v-if="showSideProject" class="resume-section element-shadow">
+                <div v-if="showSection.sideProjects" class="resume-section element-shadow">
                   <div>
                   <h2>This Blog you are reading right now</h2>
                   This blog you're reading right now, originally it was created on a Octopress framework. However, unfortunately the noobish developer I was, I developing it on a Windows machine. After about a few weeks, Ruby failed on me. Spending about another few weeks trying to get it working again. I decided to learn AngularJS, to be alot more marketable. A few years later I then wanted to reimplement my blog into vueJS which is where the state of the website is now.
@@ -134,7 +145,7 @@ export default {
                   <hr>
                   <div>
                   <h2>Android Taxi Carpool App - CompanionCab</h2>
-                  Lead a team of six, while exhibiting, software documentation and team-work. 
+                  Lead a team of six, while exhibiting, software documentation and team-work.
                   A university project designed for users, such that they can book taxis together (During early uber days)
                   I designed the http protocol such that the phone can connect to the servers.
                   I also created the login and registration system as well.
@@ -158,9 +169,9 @@ export default {
           </div>
           </div>
           <div class="pure-u-1">
-            <h1 @click="toggleSection('showWork')" class="resume-title">Extracurricular</h1>
+            <h1 @click="toggleSection('work')" class="resume-title">Extracurricular</h1>
             <transition name="fade">
-                <div class="pure-g" v-if="showWork">
+                <div class="pure-g" v-if="showSection.work">
                   <div style="padding:1em;" class="pure-u-1 pure-u-md-1-2">
                     <div class="section element-shadow">
                       Test
@@ -175,9 +186,9 @@ export default {
             </transition>
           </div>
           <div class="pure-u-1">
-            <h1 @click="toggleSection('showTech')" class="resume-title">Technology &amp; Related</h1>
+            <h1 @click="toggleSection('tech')" class="resume-title">Technology &amp; Related</h1>
             <transition name="fade">
-                <div v-if="showTech" class="pure-g">
+                <div v-if="showSection.tech" class="pure-g">
                  <div style="padding:1em;" class="pure-u-1 pure-u-md-1-3">
                     <div class="section element-shadow">
                       Test
@@ -197,9 +208,9 @@ export default {
             </transition>
           </div>
           <div class="pure-u-1">
-            <h1 @click="toggleSection('showEducation')" class="resume-title">Education</h1>
+            <h1 @click="toggleSection('education')" class="resume-title">Education</h1>
             <transition name="fade">
-                <div v-if="showEducation" class="resume-section element-shadow">
+                <div v-if="showSection.education" class="resume-section element-shadow">
                   My education
                 </div>
             </transition>

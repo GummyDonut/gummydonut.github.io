@@ -27,10 +27,10 @@
         <h1>Oha! My name is Peter</h1>
         <p>
          I'm just your average weird person. I hate Wednesdays, I eat food, I use VIM as my code-editor,
-         and I love to ramble on about my simplistic hobbies. 
+         and I love to ramble on about my simplistic hobbies.
          I am very approachable, I live to laugh and love to talk.
-         Sure I'm not the most exciting person, I don't jump out of planes or off cliffs for the thrills. 
-         But it's the small details that make me excited, little bits of trivia, weird oddities, the simple things in life. 
+         Sure I'm not the most exciting person, I don't jump out of planes or off cliffs for the thrills.
+         But it's the small details that make me excited, little bits of trivia, weird oddities, the simple things in life.
          I'm super easy to work with, grab my attention and I will put my ear to your mouth.... Uhhhh not in a weird way... Please don't be afraid ...I'm nice...
         </p>
       </div>
@@ -48,7 +48,7 @@
         I am a software developer, that mainly focuses on front-end experiences.
         Developing User Interfaces that suit the requests of my clients.
         I have worked for Hendershot research consultants and am currently working with Evertz microsystems.
-        Listening to others, and dissecting people's desire is my expertise XD. 
+        Listening to others, and dissecting people's desire is my expertise XD.
         At the very least, I enjoy my job very much as I get a chance to create people's wildest dreams in a digital format.
         For more check my <a>resume section</a>.
         </p>
