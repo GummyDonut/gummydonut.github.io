@@ -1,6 +1,6 @@
 # lantern77.github.io
 
-> Personal website
+> Personal website deployed onto master branch lantern77.github.io, this is the source code for it
 
 ## Build Setup
 
