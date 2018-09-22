@@ -18,7 +18,7 @@ export default {
             <slot name="left-content"></slot>
         </div>
         <div class="pure-u-1 pure-u-md-5-6">
-            <h4 class="job-title">{{title}}</h4>
+            <h3 class="job-title">{{title}}</h3>
             <p class="job-date">{{date}}</p>
             <slot name="right-content"></slot>
         </div>
@@ -29,6 +29,7 @@ export default {
 .job-title {
   margin-top:0.25em;
   margin-bottom:0em;
+  font-weight: bold;
 }
 
 .job-date {

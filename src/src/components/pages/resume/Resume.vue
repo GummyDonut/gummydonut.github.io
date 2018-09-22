@@ -57,7 +57,11 @@ export default {
                 <div v-if="showSection.workExperience" class="resume-section element-shadow">
                     <resume-section title="Evertz Microsystems - Junior Design Engineer" date="May 2017 - Present">
                         <template slot="left-content">
-                        left
+                          <div style="margin-top:1em;">
+                            <img class="work-exp-img" :src="'/static/img/evertz_logo.png'">
+                            <img class="work-exp-img" :src="'/static/img/insite_screen2.png'">
+                            <img class="work-exp-img" :src="'/static/img/inSITE_logo.PNG'">
+                          </div>
                         </template>
                         <template slot="right-content">
                           Big data application developer, specifically with designing and implementing third party applications
@@ -66,12 +70,12 @@ export default {
                           engineers.
                           <br>
                           <br>
-                          Technologies involved:
+                          <b>Technologies involved:</b>
                           <br>
                           JavaScript, VueJS, NodeJS, ExpressJS, Java, SpringMVC, SVN, Linux, Windows, HTML, and CSS  .
                           <br>
                           <br>
-                          Milestones:
+                          <b>Milestones:</b>
                           <br>
                           6 month conversion of legacy UI from JQuery to a fully fledged framework VueJS. Streamlining the companies
                           code base into a more manageable, componentized code base.
@@ -82,7 +86,10 @@ export default {
                     <hr>
                     <resume-section title="Hendershot Research Consultants - FrontEnd Developer" date="June 2014 - April 2017">
                         <template slot="left-content">
-                        left
+                          <div style="margin-top:1em;">
+                            <img class="work-exp-img" :src="'/static/img/hrc_new_logo.png'">
+                            <img class="work-exp-img" :src="'/static/img/hrc_screenshot.PNG'">
+                          </div>
                         </template>
                         <template slot="right-content">
                         Freelance part-time developer, sole technical member on the team.
@@ -92,12 +99,12 @@ export default {
                         Improved brand awareness with canadian organizations such as Ontario Dental Hygenist Association and Hamilton Foods.
                         <br>
                         <br>
-                        Technologies:
+                        <b>Technologies:</b>
                         <br>
                         PHP, mySQL, codeIgniter, JavaScript, HTML, and CSS
                         <br>
                         <br>
-                        Milestones and work environment:
+                        <b>Milestones and work environment:</b>
                         <br>
                         Fast paced work environment, with strict biweekly deadlines while completing university at the same time. Resulting in large amounts of crunch.
                         <br>
@@ -109,7 +116,10 @@ export default {
                     <hr>
                     <resume-section title="Evertz Microsystems - Student Design Engineer (Co-op)" date="May 2015 - Aug 2016">
                         <template slot="left-content">
-                        left
+                          <div style="margin-top:1em;">
+                            <img class="work-exp-img" :src="'/static/img/evertz_logo.png'">
+                            <img style="margin-top: 0.5em;" class="work-exp-img" :src="'/static/img/careers.employees.jpg'">
+                          </div>
                         </template>
                         <template slot="right-content">
                           Launched and maintained a content managment system that auto generate HTML and JavaScript Web components
@@ -117,12 +127,12 @@ export default {
                           Developed modules and user interfaces for big data systems, using Elasticsearch, JavaScript, and Java2EE.
                           <br>
                           <br>
-                          Technologies involved:
+                          <b>Technologies involved:</b>
                           <br>
                           Java, JavaScript, Java2EE, HTML and CSS
                           <br>
                           <br>
-                          Milestones:
+                          <b>Milestones:</b>
                           <br>
                           Fast paced work environment, involving daily scrums and biweekly sprints.
                           Semi-flexible schedule for students. A great learning experience.
@@ -137,31 +147,44 @@ export default {
             <h1 @click="toggleSection('sideProjects')" class="resume-title">Side Projects</h1>
             <transition name="fade">
                 <div v-if="showSection.sideProjects" class="resume-section element-shadow">
-                  <div>
+                  <div style="margin-top:1em;">
+                  <img class="work-exp-img" :src="'/static/img/logo.png'">
                   <h2>This Blog you are reading right now</h2>
                   This blog you're reading right now, originally it was created on a Octopress framework. However, unfortunately the noobish developer I was, I developing it on a Windows machine. After about a few weeks, Ruby failed on me. Spending about another few weeks trying to get it working again. I decided to learn AngularJS, to be alot more marketable. A few years later I then wanted to reimplement my blog into vueJS which is where the state of the website is now.
                   This blog consists of me practicing implementations, algorithms and code.
+                  <br>
+                  <br>
+                  <b>Technologies:</b> VueJS, HTML, CSS, and JS
                   </div>
                   <hr>
                   <div>
+                  <img class="work-exp-img" :src="'/static/img/compCab.png'">
                   <h2>Android Taxi Carpool App - CompanionCab</h2>
                   Lead a team of six, while exhibiting, software documentation and team-work.
                   A university project designed for users, such that they can book taxis together (During early uber days)
                   I designed the http protocol such that the phone can connect to the servers.
                   I also created the login and registration system as well.
                   This project was very fun as everyone in the group had no experience with android and great bonding moments came out of this.
-                  Used Android, Java, PHP, Restful Routing.
+                  <br>
+                  <br>
+                  <b>Technologies:</b> Android, Java, and PHP
                   </div>
                   <hr>
+                  <img class="work-exp-img" :src="'/static/img/game_circ.png'">
                   <h2>Dimension Splitter Puzzle Game</h2>
                   <div>
                   One of my early game projects. It is a platformer involving the player travel between two dimensions. Created by a three person team, we had a total of 48 hours to create this simple game demo. Simple and fun!
+                  <br>
+                  <b>Technologies:</b> GameMaker Studios
                   </div>
                   <div>
                   <hr>
+                  <img class="work-exp-img" :src="'/static/img/sec_circ.png'">
                   <h2>McMaster Software Engineering Club - Website Development</h2>
                   Created the log-in and registration system for the Software Engineering Club's website using both PHP and mySQL. Eventually reworked
                   portion of site to use Laravel.
+                  <br>
+                  <b>Technologies:</b> Larvavel, PHP, JS, HTML, and CSS
                   </div>
                   <hr>
                 </div>
@@ -371,5 +394,8 @@ hr {
 }
 .extracurricular-img{
   width:100%;
+}
+.work-exp-img{
+  width:150px;
 }
 </style>
