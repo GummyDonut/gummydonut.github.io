@@ -1,9 +1,0 @@
-	{
-		"title":"Ruby on rails Dev started",
-		"thumbnail":"img/thumbnail/rails-logo.jpg",
-		"date":"Dec 29,2014",
-		"link":"http://guides.rubyonrails.org/action_controller_overview.html",
-		"linkText":"Basic Ruby on Rails Controller and View Routing",
-		"text":"Started development with rails and ran into multiple issues such as rails routing and asset piping luckly it was solved. \n Simply place in assets in the app/assests and their respective file type, images, javascript and stylesheets, and finallly routing. Define a class the define a new method, recalll the the routing must link to that controller as well, once that method has been declared link it with a view."
-	
-	}
