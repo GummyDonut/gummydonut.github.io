@@ -2,6 +2,8 @@
 const EXPRESS = require('express')
 const APP = EXPRESS()
 const CORS = require('cors')
+let ROUTER = require('./router')
+
 
 // assign the port
 const PORT = 3000
@@ -9,11 +11,7 @@ const PORT = 3000
 // allow for cross origin support
 APP.use(CORS())
 
-// set up the routes
-APP.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
+ROUTER.init(APP)
 
 // start the application
 APP.listen(PORT, () => {
