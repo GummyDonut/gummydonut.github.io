@@ -11,11 +11,6 @@ module.exports =  {
 
     // Keep track of App
     this.App = App
-
-    // set up the routes
-    this.App.get('/', (req, res) => {
-      res.send('Hello World!')
-    })
     
     // set up the route for getting all the json files
     this.App.get('/blogs', (req, res) => {
@@ -26,6 +21,12 @@ module.exports =  {
     this.App.get('/blogs/:blogid', (req, res) => {
       blogger.getBlogEntry(req, res)
     })
+    
+    this.App.post('/blogs/create', (req, res) =>{
+      blogger.createBlogEntry(req, res)
+    })
 
+    this.App.post('/blogs/modify/:blogid', (req, res) =>{
+    })
   }
 }

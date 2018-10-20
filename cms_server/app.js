@@ -3,13 +3,14 @@ const EXPRESS = require('express')
 const APP = EXPRESS()
 const CORS = require('cors')
 let ROUTER = require('./router')
-
+const BODYPARSER = require('body-parser');
 
 // assign the port
 const PORT = 3000
 
 // allow for cross origin support
 APP.use(CORS())
+APP.use(BODYPARSER.json());
 
 ROUTER.init(APP)
 
