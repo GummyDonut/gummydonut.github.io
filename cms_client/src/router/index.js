@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from '@/components/Main'
+import create from '@/pages/Create'
+import modify from '@/pages/Modify'
 
 Vue.use(Router)
 
@@ -8,8 +9,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Main',
-      component: Main
+      redirect: '/create'
+    },
+    {
+      path: '/create',
+      name: 'Create',
+      component: create
+    },
+    {
+      path: '/modify',
+      name: 'Modify',
+      component: modify
     }
   ]
 })
