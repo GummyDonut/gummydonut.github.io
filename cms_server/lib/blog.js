@@ -96,6 +96,43 @@ module.exports = {
   },
 
   /**
+   * Modify an existing blog entry
+   * Route: /blogs/modify:blogid
+   * Type: POST
+   */
+  modifyBlogEntry(req, res){
+    let body = req.body 
+
+    // sanity check
+    if (body === undefined){
+      res.json(ERROR.toError('No body present within blog entry post'))
+      return
+    }
+
+    // validate the content of the
+    let errors = VALIDATION.validateBlogCreation(body)
+
+    // old link text will not be used
+    // get errors
+    if (errors.length > 0) {
+      res.json(ERROR.toError(errors))
+      return
+    }
+
+
+    let success = this._blog(body, req.params.blogid)
+    if (success && typeof(success) === 'boolean') {
+      res.json({'status': 'sent'})
+    } else if (success && typeof(success) === 'string'){
+      res.json(ERROR.toError(success))
+    } else {
+      res.json(ERROR.toError('Blog posting failed, unknown error'))
+    }
+
+    return
+  },
+
+  /**
    * Function for modifying/creating a blog post file
    * @param {JSON} body content of the blog post follows this structure
    * {
@@ -118,13 +155,13 @@ module.exports = {
 
     // check if there is blogID specified if so look for existing file
     if (blogID) {
-      let exists = FS.existsSync(BLOGCONTENTPREFIX + blogID)  
+      let exists = FS.existsSync(BLOGCONTENTPREFIX + blogID + '.json')  
       if (!exists) {
-        return 'Blog file does not exist at: ' + FS.existsSync(BLOGCONTENTPREFIX + blogID)  
+        return 'Blog file does not exist at: ' + BLOGCONTENTPREFIX + blogID + '.json'
       }
 
       try {
-        FS.writeFileSync(BLOGCONTENTPREFIX + blogID, JSON.stringify(body, null, 2))  
+        FS.writeFileSync(BLOGCONTENTPREFIX + blogID + '.json', JSON.stringify(body, null, 2))  
         return true
       } catch(err){
         return err.toString()

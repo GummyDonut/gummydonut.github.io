@@ -1,8 +1,9 @@
-{ 
-    "title": "It's been 2 years...testing",
-    "date": "September, 30, 2018",
-    "text": "It's been two years since, I actually posted a blog post. In that time there were highs and many lows. I hope to be able to write more, but until then this post is just a test. Relooking at this again I will need to build a new CMS, this time in nodeJS instead of Java",
-    "thumbnail": "img/thumbnail/hammer.png",
-    "link": "",
-    "linkText": "" 
+{
+  "title": "It's been 2 years...testing",
+  "id": "blogEntry12",
+  "date": "September, 30, 2018",
+  "text": "It's been two years since, I actually posted a blog post. In that time there were highs and many lows. I hope to be able to write more, but until then this post is just a test. Relooking at this again I will need to build a new CMS, this time in nodeJS instead of Java",
+  "thumbnail": "img/thumbnail/hammer.png",
+  "link": "",
+  "linkText": ""
 }

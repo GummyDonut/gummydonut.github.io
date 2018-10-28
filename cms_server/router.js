@@ -22,11 +22,14 @@ module.exports =  {
       blogger.getBlogEntry(req, res)
     })
     
+    // route for creating a new blog
     this.App.post('/blogs/create', (req, res) =>{
       blogger.createBlogEntry(req, res)
     })
 
+    // route for modifying an existing blog
     this.App.post('/blogs/modify/:blogid', (req, res) =>{
+      blogger.modifyBlogEntry(req, res)
     })
   }
 }
