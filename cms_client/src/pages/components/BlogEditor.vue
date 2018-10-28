@@ -1,9 +1,5 @@
 <script>
-import BlogEditor from './components/BlogEditor'
 export default {
-  components: {
-    BlogEditor
-  },
   data () {
     return {
     }
@@ -13,8 +9,7 @@ export default {
 
 <template>
   <div>
-    New
-    <blog-editor />
+    Editor
   </div>
 </template>
 
