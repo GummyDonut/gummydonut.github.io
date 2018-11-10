@@ -7,7 +7,10 @@ export default {
       'default' () {
         return {
           'columns': [],
-          'rows': []
+          'rows': [],
+          'options': {
+            'clickableRows': true
+          }
         }
       }
     }
@@ -15,10 +18,55 @@ export default {
   data () {
     return {
       'currentPage': 0,
-      'itemsPerPage': 5
+      'itemsPerPage': 5,
+      'selectedRow': '' // id containing the selected row
     }
   },
   methods: {
+    /**
+     * When row is clicked emit content
+     * @param {JSON} rowContent contains the blog entity
+     *   date: "September, 30, 2018"
+     *   id: "blogEntry12"
+     *   snippet: "It's been two years since, I actually posted a blog post."
+     *   tags: "Testing"
+     *   thumbnail: "img/thumbnail/hammer.png"
+     *   title: "It's been two years"
+     * @param {Number} rowIndex Number containing row index
+     */
+    emitRow (rowContent, rowIndex) {
+      if (this.tableData.options.clickableRows) {
+        this.$emit('rowClick', rowContent)
+        this.selectedRow = rowContent.id
+      }
+    },
+    /**
+     * Get the class for the row
+     * @param {JSON} rowContent contains the blog entity
+     *   date: "September, 30, 2018"
+     *   id: "blogEntry12"
+     *   snippet: "It's been two years since, I actually posted a blog post."
+     *   tags: "Testing"
+     *   thumbnail: "img/thumbnail/hammer.png"
+     *   title: "It's been two years"
+     * @param {Number} rowIndex Number containing row index
+     */
+    getRowClass (rowContent, rowIndex) {
+      let rowClass = ''
+
+      if (this.tableData.options.clickableRows) {
+        rowClass += ' hoverable'
+      }
+
+      if (this.selectedRow === rowContent.id) {
+        rowClass += ' selected-row'
+      }
+
+      return rowClass
+    },
+    /**
+     * Set the previous page
+     */
     previousPage: function () {
       let previousPage = this.currentPage - 1
 
@@ -26,15 +74,29 @@ export default {
         this.currentPage = previousPage
       }
     },
+
+    /**
+     * Set the next page
+     */
     nextPage: function () {
       let nextPage = this.currentPage + 1
       if (nextPage < (this.totalPages)) {
         this.currentPage = nextPage
       }
     },
+
+    /**
+     * Set the page
+     * @param {Number} pageNumber page number starting from zero
+     */
     setPage: function (pageNumber) {
       this.currentPage = pageNumber
     },
+
+    /**
+     * Set the class for pagination button
+     * @param {Number} pageNumber page number starting from zero
+     */
     getPaginationButtonClass (paginationIndex) {
       let paginateClass = 'pure-button'
       if (paginationIndex === this.currentPage) {
@@ -44,12 +106,21 @@ export default {
     }
   },
   computed: {
+    /**
+     * Disable the previous button when we are at the start
+     */
     disablePrevious () {
       return (this.currentPage === 0)
     },
+    /**
+     * Disable the next button when we are at the end
+     */
     disableNext () {
       return (this.currentPage === this.totalPages - 1)
     },
+    /**
+     * The actual content in the table
+     */
     filtered: function () {
       return this.tableData.rows
     },
@@ -95,9 +166,9 @@ export default {
         </tr>
       </thead>
       <tbody>
-          <tr v-for="(blog, blogIndex) in paginate" class="pure-table" :key="'blog-row-' + blogIndex">
-            <td v-for="(col, colIndex) in tableData.columns" :key="'cell-' + blogIndex + '-' + colIndex">
-              {{blog[tableData.columns[colIndex].id]}}
+          <tr v-for="(row, rowIndex) in paginate" @click="emitRow(row, rowIndex)" :class="getRowClass(row, rowIndex)" :key="'blog-row-' + rowIndex">
+            <td v-for="(col, colIndex) in tableData.columns" :key="'cell-' + rowIndex + '-' + colIndex">
+              {{row[tableData.columns[colIndex].id]}}
             </td>
           </tr>
       </tbody>
@@ -117,7 +188,16 @@ div.datatable-wrapper{
   padding-left:1em;
   padding-right:1em;
   table.datatable-table{
-    width:100%
+    width:100%;
+    tr.selected-row{
+      background-color:#cacaca;
+    }
+    tr.hoverable {
+      cursor: pointer;
+    }
+    tr.hoverable:hover{
+      background-color:#e0e0e0;
+    }
   }
   th.data-table-header-cell{
     text-align: center

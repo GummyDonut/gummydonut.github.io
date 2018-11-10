@@ -28,7 +28,10 @@ export default {
             'label': 'Tags'
           }
         ],
-        'rows': []
+        'rows': [],
+        'options': {
+          'clickableRows': true
+        }
       }
     }
   },
@@ -52,6 +55,9 @@ export default {
       } else {
         this.tableData.rows = response.data
       }
+    },
+    datatableRowClick (rowContent) {
+      console.log(rowContent)
     }
   }
 }
@@ -59,7 +65,7 @@ export default {
 
 <template>
   <div>
-    <data-table :tableData="tableData" />
+    <data-table @rowClick="datatableRowClick" :tableData="tableData" />
     <br>
     <blog-editor />
   </div>
