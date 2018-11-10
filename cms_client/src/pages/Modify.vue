@@ -60,6 +60,7 @@ export default {
 <template>
   <div>
     <data-table :tableData="tableData" />
+    <br>
     <blog-editor />
   </div>
 </template>

@@ -15,18 +15,45 @@ export default {
   data () {
     return {
       'currentPage': 0,
-      'itemsPerPage': 10
+      'itemsPerPage': 5
     }
   },
   methods: {
+    previousPage: function () {
+      let previousPage = this.currentPage - 1
+
+      if (previousPage > -1) {
+        this.currentPage = previousPage
+      }
+    },
+    nextPage: function () {
+      let nextPage = this.currentPage + 1
+      if (nextPage < (this.totalPages)) {
+        this.currentPage = nextPage
+      }
+    },
     setPage: function (pageNumber) {
       this.currentPage = pageNumber
+    },
+    getPaginationButtonClass (paginationIndex) {
+      let paginateClass = 'pure-button'
+      if (paginationIndex === this.currentPage) {
+        paginateClass += ' current-paginate-button'
+      }
+      return paginateClass
     }
   },
   computed: {
+    disablePrevious () {
+      return (this.currentPage === 0)
+    },
+    disableNext () {
+      return (this.currentPage === this.totalPages - 1)
+    },
     filtered: function () {
       return this.tableData.rows
     },
+
     /**
     * Define the total number of pages, based on the number of items
     */
@@ -76,15 +103,19 @@ export default {
       </tbody>
       </table>
       <div class="datatable-pagination-buttons-div">
-      <button @click="setPage(pageindex)" v-for="(pageNumber, pageindex) in totalPages" :key="'pagination-button-' + pageindex" class="pure-button">
-        {{pageindex}}
-      </button>
+        <button :disabled="disablePrevious" @click="previousPage" class="pure-button">Prev</button>
+        <button @click="setPage(pageindex)" v-for="(pageNumber, pageindex) in totalPages" :class="getPaginationButtonClass(pageindex)" :key="'pagination-button-' + pageindex" >
+          {{pageindex + 1}}
+        </button>
+        <button :disabled="disableNext" @click="nextPage" class="pure-button">Next</button>
       </div>
     </div>
 </template>
 <style lang="scss" scoped>
 div.datatable-wrapper{
   width:100%;
+  padding-left:1em;
+  padding-right:1em;
   table.datatable-table{
     width:100%
   }
@@ -94,6 +125,9 @@ div.datatable-wrapper{
 }
 
 div.datatable-pagination-buttons-div {
-
+  float: right;
+  button.current-paginate-button {
+    background-color:#cacaca;
+  }
 }
 </style>
