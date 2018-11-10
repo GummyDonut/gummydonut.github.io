@@ -32,6 +32,9 @@ export default {
         'options': {
           'clickableRows': true
         }
+      },
+      'editorData': {
+
       }
     }
   },
@@ -57,7 +60,7 @@ export default {
       }
     },
     datatableRowClick (rowContent) {
-      console.log(rowContent)
+      this.editorData = rowContent
     }
   }
 }
@@ -67,7 +70,7 @@ export default {
   <div>
     <data-table @rowClick="datatableRowClick" :tableData="tableData" />
     <br>
-    <blog-editor />
+    <blog-editor :editorData="editorData"/>
   </div>
 </template>
 
