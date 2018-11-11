@@ -27,7 +27,14 @@ export default {
     {{editorData}}
     <form class="pure-form pure-form-aligned">
       <fieldset>
-        <input type="text" v-model="editorData.title" />
+        <div class="pure-control-group">
+          <label for="name">Title: </label>
+          <input type="text" v-model="editorData.title" />
+        </div>
+        <div class="pure-control-group">
+          <label for="name">Date: </label>
+          <input type="text" v-model="editorData.title" />
+        </div>
       </fieldset>
     </form>
   </div>

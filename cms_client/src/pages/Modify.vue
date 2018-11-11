@@ -40,6 +40,14 @@ export default {
   },
 
   computed: {
+
+    /**
+     * Determine if we should show the editor based on whether the content
+     * is selected
+     */
+    showEditor() {
+      return Object.keys(this.editorData).length > 0
+    }
   },
   // on start of the application
   created () {
@@ -70,7 +78,13 @@ export default {
   <div>
     <data-table @rowClick="datatableRowClick" :tableData="tableData" />
     <br>
-    <blog-editor :editorData="editorData"/>
+    <br>
+    <br>
+    <hr style="width:80%;">
+    <div style="margin-top:1em;" v-show="!showEditor">
+      Please select a row from the table to edit data
+    </div>
+    <blog-editor v-show="showEditor" :editorData="editorData"/>
   </div>
 </template>
 
