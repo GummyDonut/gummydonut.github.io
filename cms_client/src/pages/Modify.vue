@@ -33,9 +33,8 @@ export default {
           'clickableRows': true
         }
       },
-      'editorData': {
-
-      }
+      'editorData': {},
+      'snippetData': {}
     }
   },
 
@@ -45,7 +44,7 @@ export default {
      * Determine if we should show the editor based on whether the content
      * is selected
      */
-    showEditor() {
+    showEditor () {
       return Object.keys(this.editorData).length > 0
     }
   },
@@ -67,8 +66,16 @@ export default {
         this.tableData.rows = response.data
       }
     },
-    datatableRowClick (rowContent) {
-      this.editorData = rowContent
+    async datatableRowClick (rowContent) {
+      // based on row content, get the blog entry
+      try {
+        let blogEntry = (await this.$axios.get('/blogs/' + rowContent.id)).data
+        this.editorData = blogEntry
+        this.snippetData = rowContent
+      } catch (e) {
+        console.log('Could not get blog entry: ')
+        console.log(e)
+      }
     }
   }
 }
@@ -84,7 +91,9 @@ export default {
     <div style="margin-top:1em;" v-show="!showEditor">
       Please select a row from the table to edit data
     </div>
-    <blog-editor v-show="showEditor" :editorData="editorData"/>
+    <blog-editor v-show="showEditor" :editorData="editorData" :snippetData="snippetData"/>
+    <br>
+    <br>
   </div>
 </template>
 

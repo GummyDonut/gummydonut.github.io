@@ -7,16 +7,73 @@ export default {
         return {
           date: '',
           id: '',
-          snippet: '',
           tags: '',
           thumbnail: '',
-          title: ''
+          title: '',
+          text: ''
+        }
+      }
+    },
+    snippetData: {
+      'type': Object,
+      'default' () {
+        return {
+          snippet: '',
+          date: '',
+          thumbnail: '',
+          title: '',
+          id: '',
+          tags: ''
         }
       }
     }
   },
-  data () {
-    return {
+  /**
+   * Use one or the other
+   */
+  computed: {
+    title: {
+      get () {
+        return this.snippetData.title || this.editorData.title
+      },
+      set (newValue) {
+        this.snippetData.title = newValue
+        this.editorData.title = newValue
+      }
+    },
+    date: {
+      get () {
+        return this.snippetData.date || this.editorData.date
+      },
+      set (newValue) {
+        this.snippetData.date = newValue
+        this.editorData.date = newValue
+      }
+    },
+    tags: {
+      get () {
+        return this.snippetData.tags
+      },
+      set (newValue) {
+        this.snippetData.tags = newValue
+      }
+    },
+    thumbnail: {
+      get () {
+        return this.snippetData.thumbnail || this.editorData.thumbnail
+      },
+      set (newValue) {
+        this.snippetData.thumbnail = newValue
+        this.editorData.thumbnail = newValue
+      }
+    },
+    text: {
+      get () {
+        return this.editorData.text
+      },
+      set (newValue) {
+        this.editorData.text = newValue
+      }
     }
   }
 }
@@ -28,12 +85,24 @@ export default {
     <form class="pure-form pure-form-aligned">
       <fieldset>
         <div class="pure-control-group">
-          <label for="name">Title: </label>
-          <input type="text" v-model="editorData.title" />
+          <label>Title: </label>
+          <input type="text" v-model="title" />
         </div>
         <div class="pure-control-group">
-          <label for="name">Date: </label>
-          <input type="text" v-model="editorData.title" />
+          <label>Date: </label>
+          <input type="text" v-model="date" />
+        </div>
+        <div class="pure-control-group">
+          <label>Tags: </label>
+          <input type="text" v-model="tags" />
+        </div>
+        <div class="pure-control-group">
+          <label>Thumbnail: </label>
+          <input type="text" v-model="thumbnail" />
+        </div>
+        <div class="pure-control-group">
+          <label>Content: </label>
+          <textarea style="height:200px;" v-model="text" class="pure-input-1-2" placeholder="Content"></textarea>
         </div>
       </fieldset>
     </form>
