@@ -103,6 +103,11 @@ module.exports = {
   modifyBlogEntry(req, res){
     let body = req.body 
 
+   // console.log(req.file)
+   // console.log(JSON.stringify(body, null, 4))
+   // res.json({'status': 'ok'})
+   // return
+
     // sanity check
     if (body === undefined){
       res.json(ERROR.toError('No body present within blog entry post'))

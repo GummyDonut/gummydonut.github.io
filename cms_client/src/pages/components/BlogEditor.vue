@@ -31,7 +31,8 @@ export default {
   data () {
     return {
       showEditor: true,
-      showPreview: false
+      showPreview: false,
+      newThumbnail: null
     }
   },
   methods: {
@@ -45,12 +46,39 @@ export default {
     backToEditor () {
       this.showPreview = false
       this.showEditor = true
+    },
+    processFile (event) {
+      this.newThumbnail = event.target.files[0]
+    },
+    submitForm () {
+      let formData = new FormData()
+      formData.append('newThumbnail', this.newThumbnail)
+      formData.append('text', this.text)
+
+      this.$axios.post('/blogs/modify/' + this.id,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      ).then(function () {
+        console.log('SUCCESS!!')
+      })
+        .catch(function () {
+          console.log('FAILURE!!')
+        })
     }
   },
   /**
    * Use one or the other
    */
   computed: {
+    id: {
+      get () {
+        return this.snippetData.title || this.editorData.title
+      }
+    },
     title: {
       get () {
         return this.snippetData.title || this.editorData.title
@@ -96,7 +124,11 @@ export default {
     },
     previewtext: {
       get () {
-        return this.text.replace(/\n/g, '<br>')
+        if (this.text) {
+          return this.text.replace(/\n/g, '<br>')
+        } else {
+          return ''
+        }
       }
     }
   }
@@ -122,7 +154,10 @@ export default {
           </div>
           <div class="pure-control-group">
             <label>Thumbnail: </label>
+
+            <!-- This is the current route we for the thumbnail -->
             <input type="text" v-model="thumbnail" />
+            <input type="file" @change="processFile($event)">
           </div>
           <div class="pure-control-group">
             <label>Content: </label>
@@ -131,7 +166,7 @@ export default {
         </fieldset>
       </form>
       <button @click="previewBlog" class="pure-button pure-button-primary">Preview</button>
-      <button class="pure-button pure-button-primary">Submit</button>
+      <button @click="submitForm" class="pure-button pure-button-primary">Submit</button>
     </div>
     <div v-show="showPreview">
       <div v-html="previewtext" class="previewContent">

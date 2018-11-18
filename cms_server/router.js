@@ -1,7 +1,8 @@
 
 
 let blogger = require('./lib/blog')
-
+let multer = require('multer')
+let upload = multer() 
 module.exports =  {
 
   /**
@@ -28,7 +29,7 @@ module.exports =  {
     })
 
     // route for modifying an existing blog
-    this.App.post('/blogs/modify/:blogid', (req, res) =>{
+    this.App.post('/blogs/modify/:blogid',upload.single('newThumbnail'),(req, res) =>{
       blogger.modifyBlogEntry(req, res)
     })
   }
