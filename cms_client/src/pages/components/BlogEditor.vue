@@ -28,6 +28,25 @@ export default {
       }
     }
   },
+  data () {
+    return {
+      showEditor: true,
+      showPreview: false
+    }
+  },
+  methods: {
+    /**
+     * Emit data so that we can preview
+     */
+    previewBlog () {
+      this.showPreview = true
+      this.showEditor = false
+    },
+    backToEditor () {
+      this.showPreview = false
+      this.showEditor = true
+    }
+  },
   /**
    * Use one or the other
    */
@@ -74,6 +93,11 @@ export default {
       set (newValue) {
         this.editorData.text = newValue
       }
+    },
+    previewtext: {
+      get () {
+        return this.text.replace(/\n/g, '<br>')
+      }
     }
   }
 }
@@ -81,31 +105,39 @@ export default {
 
 <template>
   <div class="editor-wrapper">
-    {{editorData}}
-    <form class="pure-form pure-form-aligned">
-      <fieldset>
-        <div class="pure-control-group">
-          <label>Title: </label>
-          <input type="text" v-model="title" />
-        </div>
-        <div class="pure-control-group">
-          <label>Date: </label>
-          <input type="text" v-model="date" />
-        </div>
-        <div class="pure-control-group">
-          <label>Tags: </label>
-          <input type="text" v-model="tags" />
-        </div>
-        <div class="pure-control-group">
-          <label>Thumbnail: </label>
-          <input type="text" v-model="thumbnail" />
-        </div>
-        <div class="pure-control-group">
-          <label>Content: </label>
-          <textarea style="height:200px;" v-model="text" class="pure-input-1-2" placeholder="Content"></textarea>
-        </div>
-      </fieldset>
-    </form>
+    <div v-show="showEditor">
+      <form class="pure-form pure-form-aligned">
+        <fieldset>
+          <div class="pure-control-group">
+            <label>Title: </label>
+            <input type="text" v-model="title" />
+          </div>
+          <div class="pure-control-group">
+            <label>Date: </label>
+            <input type="text" v-model="date" />
+          </div>
+          <div class="pure-control-group">
+            <label>Tags: </label>
+            <input type="text" v-model="tags" />
+          </div>
+          <div class="pure-control-group">
+            <label>Thumbnail: </label>
+            <input type="text" v-model="thumbnail" />
+          </div>
+          <div class="pure-control-group">
+            <label>Content: </label>
+            <textarea style="height:200px;" v-model="text" class="pure-input-1-2" placeholder="Content"></textarea>
+          </div>
+        </fieldset>
+      </form>
+      <button @click="previewBlog" class="pure-button pure-button-primary">Preview</button>
+      <button class="pure-button pure-button-primary">Submit</button>
+    </div>
+    <div v-show="showPreview">
+      <div v-html="previewtext" class="previewContent">
+      </div>
+      <button @click="backToEditor" class="pure-button pure-button-primary">Back</button>
+    </div>
   </div>
 </template>
 
@@ -113,5 +145,8 @@ export default {
 <style lang="scss" scoped>
 div.editor-wrapper {
   margin-top:1em;
+}
+div.previewContent{
+  text-align: left;
 }
 </style>
