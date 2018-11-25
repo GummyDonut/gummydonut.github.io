@@ -54,6 +54,9 @@ export default {
       let formData = new FormData()
       formData.append('newThumbnail', this.newThumbnail)
       formData.append('text', this.text)
+      formData.append('title', this.title)
+      formData.append('thumbnail', this.thumbnail)
+      formData.append('date', this.date)
 
       this.$axios.post('/blogs/modify/' + this.id,
         formData,

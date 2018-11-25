@@ -1,4 +1,13 @@
+// Format for blog entry
+//{
+//		"id": "blogEntry0",
+//		"title":"Beginning to something I hope",
+//		"thumbnail":"img/baduk.jpeg",
+//		"date":"Sept 02,2014",
+//		"text":"Text Content"
+//	}
 const FS = require('fs')
+const PATH = require('path')
 const ERROR = require('./error')
 const VALIDATION = require('./validation')
 const BLOGCONTENTPREFIX = '../src/src/assets/blog/'
@@ -103,10 +112,8 @@ module.exports = {
   modifyBlogEntry(req, res){
     let body = req.body 
 
-   // console.log(req.file)
-   // console.log(JSON.stringify(body, null, 4))
-   // res.json({'status': 'ok'})
-   // return
+    console.log(req.file)
+    console.log(JSON.stringify(body, null, 4))
 
     // sanity check
     if (body === undefined){
@@ -126,6 +133,7 @@ module.exports = {
 
 
     let success = this._blog(body, req.params.blogid)
+    success = success && this._storeThumbnail(req.file)
     if (success && typeof(success) === 'boolean') {
       res.json({'status': 'sent'})
     } else if (success && typeof(success) === 'string'){
@@ -135,6 +143,21 @@ module.exports = {
     }
 
     return
+  },
+
+  /**
+   * Store the file in the  
+   * @param {FILE} file 
+   */
+  _storeThumbnail(file) {
+    try {
+      FS.writeFileSync(PATH.resolve(__dirname, '../../src/static/img/thumbnail/' , file.originalname),
+      file.buffer)
+      return true
+    } catch(e) {
+      console.log(e)
+      return 'Could not store thumbnail'
+    }
   },
 
   /**
