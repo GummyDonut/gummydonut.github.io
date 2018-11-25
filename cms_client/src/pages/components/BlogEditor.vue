@@ -1,4 +1,5 @@
 <script>
+const THUMBNAILLOCAL = 'img/thumbnail/'
 export default {
   props: {
     editorData: {
@@ -49,6 +50,9 @@ export default {
     },
     processFile (event) {
       this.newThumbnail = event.target.files[0]
+
+      // update the thumbnail location when new image added
+      this.thumbnail = THUMBNAILLOCAL + this.newThumbnail.name
     },
     submitForm () {
       let formData = new FormData()
@@ -79,7 +83,7 @@ export default {
   computed: {
     id: {
       get () {
-        return this.snippetData.title || this.editorData.title
+        return this.snippetData.id || this.editorData.id
       }
     },
     title: {
@@ -159,7 +163,7 @@ export default {
             <label>Thumbnail: </label>
 
             <!-- This is the current route we for the thumbnail -->
-            <input type="text" v-model="thumbnail" />
+            <input type="text" readonly v-model="thumbnail" />
             <input type="file" @change="processFile($event)">
           </div>
           <div class="pure-control-group">

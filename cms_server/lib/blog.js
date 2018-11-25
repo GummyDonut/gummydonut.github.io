@@ -132,18 +132,31 @@ module.exports = {
     }
 
 
-    let success = this._blog(body, req.params.blogid)
-    success = success && this._storeThumbnail(req.file)
-    if (success && typeof(success) === 'boolean') {
-      res.json({'status': 'sent'})
-    } else if (success && typeof(success) === 'string'){
-      res.json(ERROR.toError(success))
-    } else {
-      res.json(ERROR.toError('Blog posting failed, unknown error'))
+    errors = [this._blog(body, req.params.blogid)]
+
+    // only if there is a file
+    if (req.file){
+      errors.push(this._storeThumbnail(req.file))
     }
 
-    return
+    // loop through errors, if there is string present return error
+    // if all true return fine
+    let errorMessages = []
+    errors.forEach((error) => {
+      if (error && typeof(error) === 'string'){
+        errorMessages.push(error)
+      } 
+    })
+
+    if (errorMessages.length > 0) {
+      res.json(ERROR.toError(errorMessages))
+      return 
+    }
+
+    res.json({'status': 'ok'})
+    return 
   },
+
 
   /**
    * Store the file in the  
@@ -164,6 +177,7 @@ module.exports = {
    * Function for modifying/creating a blog post file
    * @param {JSON} body content of the blog post follows this structure
    * {
+      "id": "blogEntry#"
       "title": "It's been 2 years...testing",
       "date": "September, 30, 2018",
       "text": " text",
@@ -187,6 +201,10 @@ module.exports = {
       if (!exists) {
         return 'Blog file does not exist at: ' + BLOGCONTENTPREFIX + blogID + '.json'
       }
+
+      // insert id into body and remove newThumbnail field
+      body.id = blogID
+      delete body.newThumbnail
 
       try {
         FS.writeFileSync(BLOGCONTENTPREFIX + blogID + '.json', JSON.stringify(body, null, 2))  
