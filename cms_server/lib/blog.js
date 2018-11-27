@@ -92,6 +92,8 @@ module.exports = {
       return
     }
 
+    // TODO modify blog move _storeThumbnail into _blog
+    // also work on site responsiveness
     let success = this._blog(body)
     if (success && typeof(success) === 'boolean') {
       res.json({'status': 'sent'})

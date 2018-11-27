@@ -69,12 +69,13 @@ export default {
             'Content-Type': 'multipart/form-data'
           }
         }
-      ).then(function () {
-        console.log('SUCCESS!!')
+      ).then(function (response) {
+        alert('status update: ' + response.data.status)
+        console.log(response)
+      }).catch(function (err) {
+        alert('status update: ' + err)
+        console.log('FAILURE!!')
       })
-        .catch(function () {
-          console.log('FAILURE!!')
-        })
     }
   },
   /**
