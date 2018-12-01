@@ -2,6 +2,11 @@
 const THUMBNAILLOCAL = 'img/thumbnail/'
 export default {
   props: {
+    // editorType is modify and new
+    editorType: {
+      'type': String,
+      'required': true
+    },
     editorData: {
       'type': Object,
       'default' () {
@@ -62,7 +67,15 @@ export default {
       formData.append('thumbnail', this.thumbnail)
       formData.append('date', this.date)
 
-      this.$axios.post('/blogs/modify/' + this.id,
+      // based on url update the route
+      let url = ''
+      if (this.editorType === 'modify') {
+        url = '/blogs/modify/' + this.id
+      } else if (this.editorType === 'new') {
+        url = '/blogs/create'
+      }
+
+      this.$axios.post(url,
         formData,
         {
           headers: {

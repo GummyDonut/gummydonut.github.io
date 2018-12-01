@@ -73,6 +73,7 @@ module.exports = {
     // grab the body of the request object
     let body = req.body
 
+    console.log(req.body)
     // sanity check
     if (body === undefined) {
       res.json(ERROR.toError('No body present within blog entry post'))

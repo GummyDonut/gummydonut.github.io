@@ -91,7 +91,7 @@ export default {
     <div style="margin-top:1em;" v-show="!showEditor">
       Please select a row from the table to edit data
     </div>
-    <blog-editor v-show="showEditor" :editorData="editorData" :snippetData="snippetData"/>
+    <blog-editor v-show="showEditor" editorType="modify" :editorData="editorData" :snippetData="snippetData"/>
     <br>
     <br>
   </div>

@@ -14,7 +14,7 @@ export default {
 <template>
   <div>
     New
-    <blog-editor />
+    <blog-editor editorType="new" />
   </div>
 </template>
 
