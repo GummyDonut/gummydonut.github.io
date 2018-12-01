@@ -1,11 +1,11 @@
 // Format for blog entry
-//{
-//		"id": "blogEntry0",
-//		"title":"Beginning to something I hope",
-//		"thumbnail":"img/baduk.jpeg",
-//		"date":"Sept 02,2014",
-//		"text":"Text Content"
-//	}
+// {
+//  "id": "blogEntry0",
+//  "title":"Beginning to something I hope",
+//  "thumbnail":"img/baduk.jpeg",
+//  "date":"Sept 02,2014",
+//  "text":"Text Content"
+// }
 const FS = require('fs')
 const PATH = require('path')
 const ERROR = require('./error')
@@ -21,48 +21,46 @@ module.exports = {
   * @param req - Express request object
   * @param res - Express response object
   */
-  getBlogs(req, res) {
-
+  getBlogs (req, res) {
     // grab the location where we store high level information
-    let content = FS.readFileSync( BLOGCONTENTPREFIX + 'blog.json')  
+    let content = FS.readFileSync(BLOGCONTENTPREFIX + 'blog.json')
     let json = null
 
     // try and catch for error handling
     try {
       json = JSON.parse(content)
-    } catch(err) {
+    } catch (err) {
       console.log(err)
     }
 
     res.json(json)
   },
 
-
   /**
   * Grabs the individual blogEntry and its content
   * Route: /blogs/{blogID}
   * Type: GET Request
   */
-  getBlogEntry(req, res){
-    let parameters = req.params 
+  getBlogEntry (req, res) {
+    let parameters = req.params
 
     // sanity check
     if (!parameters) {
       res.json(ERROR.toError('No blog entry provided'))
       return
-    } 
- 
+    }
+
     let blogID = parameters.blogid
 
     let content = ''
     try {
-      content = FS.readFileSync('../src/src/assets/blog/' + blogID + '.json')  
-    } catch(err) {
-      res.json(ERROR.toError('No blog entry by the name of: ' + blogID));
-      return 
+      content = FS.readFileSync('../src/src/assets/blog/' + blogID + '.json')
+    } catch (err) {
+      res.json(ERROR.toError('No blog entry by the name of: ' + blogID))
+      return
     }
 
-    let json = JSON.parse(content) 
+    let json = JSON.parse(content)
     res.json(json)
   },
 
@@ -71,13 +69,12 @@ module.exports = {
    * Route: /blogs/create
    * Type: POST
    */
-  createBlogEntry(req, res){
-    
+  createBlogEntry (req, res) {
     // grab the body of the request object
     let body = req.body
 
     // sanity check
-    if (body === undefined){
+    if (body === undefined) {
       res.json(ERROR.toError('No body present within blog entry post'))
       return
     }
@@ -94,16 +91,14 @@ module.exports = {
 
     // TODO modify blog move _storeThumbnail into _blog
     // also work on site responsiveness
-    let success = this._blog(body)
-    if (success && typeof(success) === 'boolean') {
+    let success = this._blog(req)
+    if (success && typeof (success) === 'boolean') {
       res.json({'status': 'sent'})
-    } else if (success && typeof(success) === 'string'){
+    } else if (success && typeof (success) === 'string') {
       res.json(ERROR.toError(success))
     } else {
       res.json(ERROR.toError('Blog posting failed, unknown error'))
     }
-
-    return
   },
 
   /**
@@ -111,14 +106,14 @@ module.exports = {
    * Route: /blogs/modify:blogid
    * Type: POST
    */
-  modifyBlogEntry(req, res){
-    let body = req.body 
+  modifyBlogEntry (req, res) {
+    let body = req.body
 
     console.log(req.file)
     console.log(JSON.stringify(body, null, 4))
 
     // sanity check
-    if (body === undefined){
+    if (body === undefined) {
       res.json(ERROR.toError('No body present within blog entry post'))
       return
     }
@@ -133,11 +128,10 @@ module.exports = {
       return
     }
 
-
-    errors = [this._blog(body, req.params.blogid)]
+    errors = [this._blog(req)]
 
     // only if there is a file
-    if (req.file){
+    if (req.file) {
       errors.push(this._storeThumbnail(req.file))
     }
 
@@ -145,31 +139,29 @@ module.exports = {
     // if all true return fine
     let errorMessages = []
     errors.forEach((error) => {
-      if (error && typeof(error) === 'string'){
+      if (error && typeof (error) === 'string') {
         errorMessages.push(error)
-      } 
+      }
     })
 
     if (errorMessages.length > 0) {
       res.json(ERROR.toError(errorMessages))
-      return 
+      return
     }
 
     res.json({'status': 'ok'})
-    return 
   },
 
-
   /**
-   * Store the file in the  
-   * @param {FILE} file 
+   * Store the file in the
+   * @param {FILE} file
    */
-  _storeThumbnail(file) {
+  _storeThumbnail (file) {
     try {
-      FS.writeFileSync(PATH.resolve(__dirname, '../../src/static/img/thumbnail/' , file.originalname),
-      file.buffer)
+      FS.writeFileSync(PATH.resolve(__dirname, '../../src/static/img/thumbnail/', file.originalname),
+        file.buffer)
       return true
-    } catch(e) {
+    } catch (e) {
       console.log(e)
       return 'Could not store thumbnail'
     }
@@ -177,7 +169,8 @@ module.exports = {
 
   /**
    * Function for modifying/creating a blog post file
-   * @param {JSON} body content of the blog post follows this structure
+   * @param {JSON} req, request object
+   * we are interested in the body which is the content of the blog post follows this structure
    * {
       "id": "blogEntry#"
       "title": "It's been 2 years...testing",
@@ -187,19 +180,20 @@ module.exports = {
       "link": "",
       "linkText": ""
      }
-     @param {String} blogID Optional id, if specified will modify an existing blog
-   * @returns {Bool|String} True for success, error message string upon failure
+   * @returns {Array of Strings/Bool} Strings represent error, true success, false otherwise
    */
-  _blog(body, blogID){
-    
-    // sanity check 
+  _blog (req) {
+    let body = req.body
+    let blogID = req.params.blogid
+
+    // sanity check
     if (!body) {
       return 'No body content defined'
     }
 
     // check if there is blogID specified if so look for existing file
     if (blogID) {
-      let exists = FS.existsSync(BLOGCONTENTPREFIX + blogID + '.json')  
+      let exists = FS.existsSync(BLOGCONTENTPREFIX + blogID + '.json')
       if (!exists) {
         return 'Blog file does not exist at: ' + BLOGCONTENTPREFIX + blogID + '.json'
       }
@@ -209,24 +203,22 @@ module.exports = {
       delete body.newThumbnail
 
       try {
-        FS.writeFileSync(BLOGCONTENTPREFIX + blogID + '.json', JSON.stringify(body, null, 2))  
+        FS.writeFileSync(BLOGCONTENTPREFIX + blogID + '.json', JSON.stringify(body, null, 2))
         return true
-      } catch(err){
+      } catch (err) {
         return err.toString()
       }
-    } 
-    
-    // simply write new file
-    else {
+    } else {
+      // simply write new file
       try {
         let counterIndex = JSON.parse(FS.readFileSync(BLOGCONTENTPREFIX + 'counter.json')).index
-        let newIndex = counterIndex + 1 
-        FS.writeFileSync(BLOGCONTENTPREFIX + 'blogEntry' + newIndex + '.json', JSON.stringify(body, null, 2), { flag: 'wx' })  
+        let newIndex = counterIndex + 1
+        FS.writeFileSync(BLOGCONTENTPREFIX + 'blogEntry' + newIndex + '.json', JSON.stringify(body, null, 2), { flag: 'wx' })
 
         // increase the counter
-        FS.writeFileSync(BLOGCONTENTPREFIX + 'counter.json', JSON.stringify({index: newIndex}, null, 2))  
+        FS.writeFileSync(BLOGCONTENTPREFIX + 'counter.json', JSON.stringify({index: newIndex}, null, 2))
         return true
-      } catch(err){
+      } catch (err) {
         return err.toString()
       }
     }
