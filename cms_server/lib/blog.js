@@ -90,7 +90,6 @@ module.exports = {
       return
     }
 
-    // TODO modify blog move _storeThumbnail into _blog
     // also work on site responsiveness
     let success = this._blog(req)
     if (success && typeof (success) === 'boolean') {
@@ -130,11 +129,6 @@ module.exports = {
     }
 
     errors = [this._blog(req)]
-
-    // only if there is a file
-    if (req.file) {
-      errors.push(this._storeThumbnail(req.file))
-    }
 
     // loop through errors, if there is string present return error
     // if all true return fine
@@ -190,6 +184,14 @@ module.exports = {
     // sanity check
     if (!body) {
       return 'No body content defined'
+    }
+
+    // only if there is a file
+    if (req.file) {
+      let thumbnailError = this._storeThumbnail(req.file)
+      if (thumbnailError && typeof (thumbnailError) === 'string') {
+        return thumbnailError
+      }
     }
 
     // check if there is blogID specified if so look for existing file
