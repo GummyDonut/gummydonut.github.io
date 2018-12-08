@@ -1,4 +1,8 @@
 <script>
+/**
+ * TODO WHEN LOADING MODIFIED BLOG PASS OVER
+ * OPTIONAL img THUMBNAIL DATA
+ */
 const THUMBNAILLOCAL = 'img/thumbnail/'
 export default {
   props: {
@@ -38,7 +42,8 @@ export default {
     return {
       showEditor: true,
       showPreview: false,
-      newThumbnail: null
+      newThumbnail: null,
+      previewThumbnail: null
     }
   },
   methods: {
@@ -58,6 +63,15 @@ export default {
 
       // update the thumbnail location when new image added
       this.thumbnail = THUMBNAILLOCAL + this.newThumbnail.name
+
+      // get the preview thumbnail file
+      let reader = new FileReader()
+      reader.onload = (e) => {
+        this.previewThumbnail = e.target.result
+      }
+
+      // read the image file as a data URL.
+      reader.readAsDataURL(this.newThumbnail)
     },
     submitForm () {
       let formData = new FormData()
@@ -190,6 +204,9 @@ export default {
       <button @click="submitForm" class="pure-button pure-button-primary">Submit</button>
     </div>
     <div v-show="showPreview">
+      <!-- Thumbnail preview -->
+      <img v-if="previewThumbnail" :src="previewThumbnail"/>
+      <!-- Preview text -->
       <div v-html="previewtext" class="previewContent">
       </div>
       <button @click="backToEditor" class="pure-button pure-button-primary">Back</button>
