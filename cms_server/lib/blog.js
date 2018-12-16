@@ -55,13 +55,20 @@ module.exports = {
     let content = ''
     try {
       content = FS.readFileSync('../src/src/assets/blog/' + blogID + '.json')
-    } catch (err) {
-      res.json(ERROR.toError('No blog entry by the name of: ' + blogID))
-      return
-    }
+      let contentJSON = JSON.parse(content)
+      let responseJSON = {
+        'content': contentJSON
+      }
+      // After reading the json content send over the thumbnail content as well
+      if (contentJSON.thumbnail) {
+        let thumbnailBit = FS.readFileSync('../src/static/' + contentJSON.thumbnail)
+        responseJSON.thumbnailData = Buffer.from(thumbnailBit).toString('base64')
+      }
 
-    let json = JSON.parse(content)
-    res.json(json)
+      res.json(responseJSON)
+    } catch (err) {
+      res.json(ERROR.toError('Error retrieving: ' + blogID + ': ' + err))
+    }
   },
 
   /**

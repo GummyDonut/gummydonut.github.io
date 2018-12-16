@@ -1,7 +1,6 @@
 <script>
 /**
- * TODO WHEN LOADING MODIFIED BLOG PASS OVER
- * OPTIONAL img THUMBNAIL DATA
+ *
  */
 const THUMBNAILLOCAL = 'img/thumbnail/'
 export default {
@@ -24,6 +23,12 @@ export default {
         }
       }
     },
+    supplemental: {
+      'type': Object,
+      'default' () {
+        return {}
+      }
+    },
     snippetData: {
       'type': Object,
       'default' () {
@@ -44,6 +49,13 @@ export default {
       showPreview: false,
       newThumbnail: null,
       previewThumbnail: null
+    }
+  },
+  watch: {
+    supplemental: function (newSupplement) { // watch it
+      if (newSupplement.thumbnailData) {
+        this.previewThumbnail = 'data:image/png;base64,' + newSupplement.thumbnailData
+      }
     }
   },
   methods: {
