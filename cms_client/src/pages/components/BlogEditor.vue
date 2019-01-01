@@ -16,7 +16,6 @@ export default {
         return {
           date: '',
           id: '',
-          tags: '',
           thumbnail: '',
           title: '',
           text: ''
@@ -92,6 +91,7 @@ export default {
       formData.append('title', this.title)
       formData.append('thumbnail', this.thumbnail)
       formData.append('date', this.date)
+      formData.append('tags', this.tags)
 
       // based on url update the route
       let url = ''
@@ -109,7 +109,12 @@ export default {
           }
         }
       ).then(function (response) {
-        alert('status update: ' + response.data.status)
+        if (response.data.error && response.data.error.message) {
+          alert('status update: ' + response.data.error.message)
+        } else {
+          alert('status update: ' + response.data.status)
+        }
+
         console.log(response)
       }).catch(function (err) {
         alert('status update: ' + err)
