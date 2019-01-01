@@ -15,7 +15,7 @@ module.exports = {
     if (typeof (messsages) === 'string') {
       return {'error': {'message': messsages}}
     } else if (messsages instanceof Array) {
-      return {'error': {'messages': messsages}}
+      return {'error': {'message': messsages}}
     } else {
       return {'error': {'message': 'Error has occurred, message type incorrect'}}
     }

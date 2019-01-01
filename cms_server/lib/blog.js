@@ -214,6 +214,8 @@ module.exports = {
 
       try {
         FS.writeFileSync(BLOGCONTENTPREFIX + blogID + '.json', JSON.stringify(body, null, 2))
+        // update snippet
+        this._snippet(body, true)
         return true
       } catch (err) {
         return err.toString()
@@ -223,7 +225,11 @@ module.exports = {
       try {
         let counterIndex = JSON.parse(FS.readFileSync(BLOGCONTENTPREFIX + 'counter.json')).index
         let newIndex = counterIndex + 1
+        body.id = 'blogEntry' + newIndex
         FS.writeFileSync(BLOGCONTENTPREFIX + 'blogEntry' + newIndex + '.json', JSON.stringify(body, null, 2), { flag: 'wx' })
+
+        // update snippet
+        this._snippet(body)
 
         // increase the counter
         FS.writeFileSync(BLOGCONTENTPREFIX + 'counter.json', JSON.stringify({index: newIndex}, null, 2))
@@ -232,5 +238,43 @@ module.exports = {
         return err.toString()
       }
     }
+  },
+
+  /**
+   * Create the snippet in blog.json
+   * @param {JSON} body
+   * {
+      "id": "blogEntry#"
+      "title": "It's been 2 years...testing",
+      "date": "September, 30, 2018",
+      "text": " text",
+      "thumbnail": "img/thumbnail/hammer.png",
+     }
+   */
+  _snippet (body, existing) {
+    let snippetArray = JSON.parse(FS.readFileSync(BLOGCONTENTPREFIX + 'blog.json'))
+
+    if (!existing) {
+      let snippetJSON = {
+        'date': body.date,
+        'snippet': body.text.substring(0, 150) + '...',
+        'thumbnail': body.thumbnail,
+        'title': body.title,
+        'id': body.id,
+        'tags': body.tags
+      }
+      snippetArray.push(snippetJSON)
+    } else {
+      // Loop through all of snippets looking for matching id
+      let snippetToEdit = snippetArray.find((snippet) => {
+        return snippet.id === body.id
+      })
+      snippetToEdit.date = body.date
+      snippetToEdit.snippet = body.text.substring(0, 150) + '...'
+      snippetToEdit.thumbnail = body.thumbnail
+      snippetToEdit.title = body.title
+      snippetToEdit.tags = body.tags
+    }
+    FS.writeFileSync(BLOGCONTENTPREFIX + 'blog.json', JSON.stringify(snippetArray, null, 2))
   }
 }
