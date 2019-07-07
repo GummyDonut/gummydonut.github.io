@@ -1,5 +1,5 @@
 Personal Website
-https://lantern77.github.io
+https://gummydonut.github.io
 Where I just ramble on about non-sense, ye words may mean nothing!
 TODO List
 - Update Preview for CMS so it fits the exact width
