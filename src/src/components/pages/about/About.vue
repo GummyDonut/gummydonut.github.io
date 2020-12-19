@@ -7,9 +7,6 @@
       <!-- Replace with profile pic here -->
       <img src="static/img/logo.png" class="profile-img">
       <br>
-      <p style="text-align:center; margin:0">
-        December 07 1994
-      </p>
       <hr style="width:45%;">
       <small>
         peter_hoang2@hotmail.com
