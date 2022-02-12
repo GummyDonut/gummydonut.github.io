@@ -1,8 +1,0 @@
-
-	{
-		"id": "blogEntry0",
-		"title":"Beginning to something I hope",
-		"thumbnail":"img/baduk.jpeg",
-		"date":"Sept 02,2014",
-		"text":"Well finally school has started and I finally going to make a blog post. \n This will probably just consist of things I did so far and things I still have to do. I'm glad that I finally got the conversion completed for the site moving from Octopress to AngularJS. I also still need to continue with the movement and making the blog's UI much cleaner. Hmmmmm time to research stufff....\n  \n Update: This is about nine days after School started, but I have finally been able to get stuff done http:\/\/julienrenaux.fr\/2013\/03\/01\/twitter-bootstrap-responsive-does-not-work-on-mobile-devices\/ \n \n This is the link to the solution in which that allows responsive grids to start working on Mobile devices \n \n Also to add a new line in json files you simply type in \/n and escape special characters with a forward slash. \n \n This may seem trivial but I have the tendency to forget. \n \n  More than anything else this is just a reminder that I still have a long way to go, this includes unique styling and animation, better images, implementation of an infinite scroll in javascript, automation of the blogging process. "
-	}
